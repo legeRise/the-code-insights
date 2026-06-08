@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Welcome to The Code Insights</h1>
+			<p>
+				A blog about coding, development, and the lessons learned along the way. Here I share my
+				experiences building software, solving problems, and navigating the world of tech as a
+				self-taught developer.
+			</p>
+
+			<h2>Latest Post</h2>
+			<p>
+				<a href="/blog/test/"><strong>Got Tired of SSHing Into My Server Just to View Logs</strong></a>
+				— The story of building Ezlog, a simple web-based log viewer born out of frustration with
+				constantly SSHing into servers to check logs. From tmux sessions to a full CLI tool, here's
+				how it all came together.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

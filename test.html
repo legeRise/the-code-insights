@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Got Tired of SSHing Into My Server Just to View Logs</title>
+  <style>
+    * {
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 17px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.6;
+      margin: 30px 0 0 0;
+      margin-bottom: 18px;
+      margin-top: 33px;
+      color: #333;
+    }
+
+    h3 {
+      font-size: 30px;
+      margin: 10px 0 20px 0;
+      color: #333;
+    }
+
+    header {
+      width: 640px;
+      margin: auto;
+    }
+
+    section {
+      width: 640px;
+      margin: auto;
+    }
+
+    section p {
+      margin-bottom: 27px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    section img {
+      max-width: 640px;
+    }
+
+    footer {
+      padding: 0 20px;
+      margin: 50px 0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .aspectRatioPlaceholder {
+      max-width: auto !important;
+      max-height: auto !important;
+    }
+
+    .aspectRatioPlaceholder-fill {
+      padding-bottom: 0 !important;
+    }
+
+    header,
+    section[data-field=subtitle],
+    section[data-field=description] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <article class="h-entry">
+    <header>
+      <h1 class="p-name">Got Tired of SSHing Into My Server Just to View Logs</h1>
+    </header>
+    <section data-field="subtitle" class="p-summary">
+      Even though, I completed my degree in CS still I call my self a self-learned developer. And that’s one of the
+      reasons that I was never…
+    </section>
+    <section data-field="body" class="e-content">
+      <section name="e60a" class="section section--body section--first section--last">
+        <div class="section-divider">
+          <hr class="section-divider">
+        </div>
+        <div class="section-content">
+          <div class="section-inner sectionLayout--insetColumn">
+            <h3 name="a42c" id="a42c" class="graf graf--h3 graf--leading graf--title">Got Tired of SSHing Into My Server
+              Just to View Logs</h3>
+            <p name="8f5f" id="8f5f" class="graf graf--p graf-after--h3">Even though, I completed my degree in CS still
+              I call my self a self-learned developer. And that’s one of the reasons that I was never confident about
+              the approches I used to solve a problem. Be it</p>
+            <ol class="postList">
+              <li name="dad7" id="dad7" class="graf graf--li graf-after--p">Deploying a webapp on Server</li>
+              <li name="e325" id="e325" class="graf graf--li graf-after--li">Connecting domain</li>
+              <li name="cec9" id="cec9" class="graf graf--li graf-after--li">Planning backup Mechanism for applications
+              </li>
+            </ol>
+            <p name="845c" id="845c" class="graf graf--p graf-after--li">Apart from above common confusions I also used
+              to have this weird confusion about the <code class="markup--code markup--p-code">Logs</code> for an
+              application? How am i supposed to accurately track them? When can I say that I understand the <code
+                class="markup--code markup--p-code">Logging</code> module well enough besides half of my applications
+              and experiments still use <code class="markup--code markup--p-code">print()</code></p>
+            <p name="d07f" id="d07f" class="graf graf--p graf-after--p">More on that another confusion was When I am
+              actively developing an application how do I keep it live on the server? do I use</p>
+            <ol class="postList">
+              <li name="c99b" id="c99b" class="graf graf--li graf-after--p">Systemd</li>
+              <li name="3b5d" id="3b5d" class="graf graf--li graf-after--li">PM2 ( a simpler alternative)</li>
+              <li name="2225" id="2225" class="graf graf--li graf-after--li">nohup</li>
+              <li name="1137" id="1137" class="graf graf--li graf-after--li">Tmux</li>
+            </ol>
+            <p name="6816" id="6816" class="graf graf--p graf-after--li"><code
+                class="markup--code markup--p-code">Systemd</code> was the most reliable but preparing service files for
+              it is one thing, monitoring the logs using <code class="markup--code markup--p-code">journalctl</code> is
+              another. <code class="markup--code markup--p-code">PM2</code> I had discovered it after <code
+                class="markup--code markup--p-code">Systemd</code> so it felt simpler but due to some <code
+                class="markup--code markup--p-code">not sure what happened</code> circumstances we as a team couldn’t
+              work well on it especially when we had to update the code several times. <code
+                class="markup--code markup--p-code">nohup</code> has a <code
+                class="markup--code markup--p-code">no</code> at the start for a reason. Ended up on <code
+                class="markup--code markup--p-code">Tmux</code> yes so the utility that was built for multiple terminals
+              in one window we utilized it as simple process manager</p>
+            <p name="93c8" id="93c8" class="graf graf--p graf-after--p">It was very simple. Inside <code
+                class="markup--code markup--p-code">tmux session</code> we would add a separate <code
+                class="markup--code markup--p-code">window</code> for each project with a descriptive name and now it
+              was easier for us to debug because whenever something went wrong</p>
+            <p name="f12b" id="f12b" class="graf graf--p graf-after--p">there was a 3 step process</p>
+            <ol class="postList">
+              <li name="7e1b" id="7e1b" class="graf graf--li graf-after--p">SSH into the server</li>
+              <li name="b2d0" id="b2d0" class="graf graf--li graf-after--li">Attach the tmux session</li>
+              <li name="5d41" id="5d41" class="graf graf--li graf-after--li">select the project window and see the logs
+                on console</li>
+            </ol>
+            <p name="ee1c" id="ee1c" class="graf graf--p graf-after--li">Everything was great until logging into server
+              again and again started to feel not right. This is the moment where I started to wonder If there was a way
+              to view logs directly on the browser and there my search begins. I searched here and there and to be
+              honest, I was either <strong class="markup--strong markup--p-strong">too naive to get comfortable with any
+                of the famous Log viewers</strong> or <strong class="markup--strong markup--p-strong"><em
+                  class="markup--em markup--p-em">too developer to act as just a normal user for once.</em></strong></p>
+            <p name="1ac3" id="1ac3" class="graf graf--p graf-after--p">Whatever the reason I couldn’t find anything
+              until I hopped on to <code class="markup--code markup--p-code">frontail</code></p>
+            <div name="87ac" id="87ac" class="graf graf--mixtapeEmbed graf-after--p"><a
+                href="https://github.com/mthenw/frontail" data-href="https://github.com/mthenw/frontail"
+                class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/mthenw/frontail"><strong
+                  class="markup--strong markup--mixtapeEmbed-strong">GitHub - mthenw/frontail: 📝 streaming logs to the
+                  browser. Sponsored by https://cloudash.dev</strong><br><em
+                  class="markup--em markup--mixtapeEmbed-em">📝 streaming logs to the browser. Sponsored by
+                  https://cloudash.dev - mthenw/frontail</em>github.com</a><a href="https://github.com/mthenw/frontail"
+                class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock"
+                data-media-id="5cd9dd1108ec763399fc0c0b5078c17e"></a></div>
+            <p name="1445" id="1445" class="graf graf--p graf-after--mixtapeEmbed">A simple web based log viewer that
+              you can simply install on your server and just point it to your log file following the exact guide and
+              your are all set you get your logs for that project streamed on your browser with a very basic
+              authentication</p>
+            <figure name="ab12" id="ab12" class="graf graf--figure graf-after--p"><img class="graf-image"
+                data-image-id="0*YLi_kYDtqnHBj79W.gif" data-width="888" data-height="568"
+                src="https://cdn-images-1.medium.com/max/800/0*YLi_kYDtqnHBj79W.gif"></figure>
+            <p name="e1c4" id="e1c4" class="graf graf--p graf-after--figure">That’s all what I wanted. And here my
+              journey for a perfect way to track logs ends.</p>
+            <p name="9729" id="9729" class="graf graf--p graf-after--p">The</p>
+            <p name="c15f" id="c15f" class="graf graf--p graf-after--p">End</p>
+            <p name="5a09" id="5a09" class="graf graf--p graf-after--p">Until it restarted with a very valid concern.
+            </p>
+            <p name="469c" id="469c" class="graf graf--p graf-after--p">What if I want to track multiple projects? What
+              if I want to give them readable names <code class="markup--code markup--p-code">aliases</code> instead of
+              full file path representing one log file? What if when there are multiple log files how to share streaming
+              link of specific project?</p>
+            <p name="d043" id="d043" class="graf graf--p graf-after--p">These were the few question I used ChatGPT to
+              get the answer from. It helped me with config files other setup which it believed will work but I quickly
+              realized that I was hitting the limit of <code class="markup--code markup--p-code">frontail</code> it was
+              not designed for that. and Here My journey to find another logviewer started this time with a check list
+            </p>
+            <ol class="postList">
+              <li name="3384" id="3384" class="graf graf--li graf-after--p">Must be as simple as <code
+                  class="markup--code markup--li-code">frontail</code></li>
+              <li name="e966" id="e966" class="graf graf--li graf-after--li">Must support multiple project logs files (
+                1 tab per project can be good)</li>
+              <li name="178e" id="178e" class="graf graf--li graf-after--li"><code
+                  class="markup--code markup--li-code">Aliases</code> for projects instead of full paths</li>
+              <li name="d6d1" id="d6d1" class="graf graf--li graf-after--li">Must be super easy to add or remove any new
+                log file</li>
+            </ol>
+            <p name="0b9b" id="0b9b" class="graf graf--p graf-after--li">This is where I realized there was no such
+              thing at least nothing I could find because it was obvious</p>
+            <ol class="postList">
+              <li name="fbbc" id="fbbc" class="graf graf--li graf-after--p">Professional teams used professional tools
+                the well established ones ( naming the tools itself is problem for me because i don’t know what they
+                call professional lets say <code class="markup--code markup--li-code">sentry</code> )</li>
+              <li name="1dfa" id="1dfa" class="graf graf--li graf-after--li">Solo developers Never needed this level of
+                complexity they would usually debug there way, ssh into server see the logs fix it. Or debug locally
+              </li>
+              <li name="71de" id="71de" class="graf graf--li graf-after--li">Some curious fellows will struggle until
+                they find a great mix of both <code class="markup--code markup--li-code">frontail</code> simpler +
+                useful and will set it up as mostly they will be working on one project at a time so limit never hits
+              </li>
+            </ol>
+            <p name="9401" id="9401" class="graf graf--p graf-after--li">But</p>
+            <p name="b443" id="b443" class="graf graf--p graf-after--p">4. Those who were not <code
+                class="markup--code markup--p-code">Solo</code> not a <code
+                class="markup--code markup--p-code">Team</code> but were a bunch of <code
+                class="markup--code markup--p-code">individuals</code> brought together under the umbrella of a yet
+              another <code class="markup--code markup--p-code">startup</code> were the ones to struggle the most
+              because few of them used to be</p>
+            <ol class="postList">
+              <li name="491e" id="491e" class="graf graf--li graf-after--p">Intellectual, Curious, Interested and
+                wanting everything to be handled the best and recommened way</li>
+              <li name="6b89" id="6b89" class="graf graf--li graf-after--li">While others would be too busy to just
+                finish there job</li>
+            </ol>
+            <p name="ba01" id="ba01" class="graf graf--p graf-after--li">this is category I think I fell into and ended
+              up engineering (ofcourse ChatGPT with help from me) frontail with the updated checklist mentioned above.
+            </p>
+            <div name="37ad" id="37ad" class="graf graf--mixtapeEmbed graf-after--p"><a
+                href="https://github.com/legeRise/ezlog.git" data-href="https://github.com/legeRise/ezlog.git"
+                class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/legeRise/ezlog.git"><strong
+                  class="markup--strong markup--mixtapeEmbed-strong">GitHub - legeRise/ezlog: A simple web-based log
+                  viewer</strong><br><em class="markup--em markup--mixtapeEmbed-em">A simple web-based log viewer.
+                  Contribute to legeRise/ezlog development by creating an account on GitHub.</em>github.com</a><a
+                href="https://github.com/legeRise/ezlog.git" class="js-mixtapeImage mixtapeImage u-ignoreBlock"
+                data-media-id="e0ae834e2dfba63fa1e04edd337c4075" data-thumbnail-img-id="0*2jqrn2tQwhGTCXjM"
+                style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*2jqrn2tQwhGTCXjM);"></a>
+            </div>
+            <p name="0aea" id="0aea" class="graf graf--p graf-after--mixtapeEmbed">Presenting <code
+                class="markup--code markup--p-code">Ezlog</code> A simple web based log viewer. Lol hope you already saw
+              that coming.</p>
+            <p name="9386" id="9386" class="graf graf--p graf-after--p">Won’t brag but at least I was able to create
+              something I and my colleagues regularly use</p>
+            <p name="90c5" id="90c5" class="graf graf--p graf-after--p">here are some quick features I made sure to add
+            </p>
+            <ol class="postList">
+              <li name="e3f0" id="e3f0" class="graf graf--li graf-after--p">Tracks Multiple Project ( The Major Problem
+                I had faced )</li>
+            </ol>
+            <figure name="fd09" id="fd09" class="graf graf--figure graf-after--li"><img class="graf-image"
+                data-image-id="0*X18U8EmRcoOK_-Ol.png" data-width="1366" data-height="626"
+                src="https://cdn-images-1.medium.com/max/800/0*X18U8EmRcoOK_-Ol.png"></figure>
+            <p name="15e0" id="15e0" class="graf graf--p graf-after--figure">You can see one tab per log file</p>
+            <p name="1bee" id="1bee" class="graf graf--p graf-after--p">2. <code
+                class="markup--code markup--p-code">Aliases</code> so each tab has a friendly name that you can use for
+              tracking your project</p>
+            <blockquote name="f20a" id="f20a" class="graf graf--blockquote graf-after--p">for example for your project
+              <strong
+                class="markup--strong markup--blockquote-strong">my-projects/special/ai-chatbot/chatbot.log</strong>
+            </blockquote>
+            <blockquote name="5a73" id="5a73" class="graf graf--blockquote graf-after--blockquote">you could simply give
+              it a name like<strong class="markup--strong markup--blockquote-strong"> </strong><code
+                class="markup--code markup--blockquote-code">chatbot</code></blockquote>
+            <p name="94bf" id="94bf" class="graf graf--p graf-after--blockquote">3. <strong
+                class="markup--strong markup--p-strong">Easy CLI</strong></p>
+            <p name="94fa" id="94fa" class="graf graf--p graf-after--p">One of my favourite features because as I
+              started it, I quickly realized that the hardest part was to add new log file to be tracked</p>
+            <p name="63f6" id="63f6" class="graf graf--p graf-after--p">Imagine always having to find <code
+                class="markup--code markup--p-code">tracked_logs.json</code> and manually adding a new object like</p>
+            <pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="json" name="1f5b" id="1f5b"
+              class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-punctuation">{</span><br /><span class="hljs-attr">&quot;alias&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;chatbot&quot;</span><br /><span class="hljs-attr">&quot;path&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-projects/special/ai-chatbot/chatbot.log&quot;</span><br /><span class="hljs-punctuation">}</span></span></pre>
+            <p name="697b" id="697b" class="graf graf--p graf-after--pre">And then there is also a case when you have to
+              remove it.</p>
+            <p name="f5c1" id="f5c1" class="graf graf--p graf-after--p">Or if you want to see list of all the projects
+              that are being tracked. And many more common scenarios like these so I spend some time on adding a few
+              useful <code class="markup--code markup--p-code">cli</code> commands for example</p>
+            <ol class="postList">
+              <li name="a6d4" id="a6d4" class="graf graf--li graf-after--p">To list all tracked files <code
+                  class="markup--code markup--li-code">ezlog list</code></li>
+            </ol>
+            <figure name="11a3" id="11a3" class="graf graf--figure graf-after--li"><img class="graf-image"
+                data-image-id="1*F7g6qUovisnHYo9E4FHYyg.png" data-width="863" data-height="198"
+                src="https://cdn-images-1.medium.com/max/800/1*F7g6qUovisnHYo9E4FHYyg.png"></figure>
+            <p name="b7ad" id="b7ad" class="graf graf--p graf-after--figure">This command lists <code
+                class="markup--code markup--p-code">aliases</code> -&gt; <code
+                class="markup--code markup--p-code">paths</code></p>
+            <p name="9567" id="9567" class="graf graf--p graf-after--p">2. Adding a new file to be tracked simple <code
+                class="markup--code markup--p-code">ezlog add &lt;alias&gt; &lt;file-path&gt;</code></p>
+            <figure name="e7ca" id="e7ca" class="graf graf--figure graf-after--p"><img class="graf-image"
+                data-image-id="1*0HUV-weL4GeLF7GVMTGjYA.png" data-width="845" data-height="312"
+                src="https://cdn-images-1.medium.com/max/800/1*0HUV-weL4GeLF7GVMTGjYA.png"></figure>
+            <p name="a2ac" id="a2ac" class="graf graf--p graf-after--figure">so you can run this <code
+                class="markup--code markup--p-code">add</code> command everytime you want to add a new file to be
+              tracked and you are good to go</p>
+            <p name="bd3f" id="bd3f" class="graf graf--p graf-after--p">3. The only next step is starting the server so
+              it is available on web</p>
+            <p name="7d22" id="7d22" class="graf graf--p graf-after--p">for that you can use <code
+                class="markup--code markup--p-code">ezlog start</code></p>
+            <figure name="31ea" id="31ea" class="graf graf--figure graf-after--p"><img class="graf-image"
+                data-image-id="1*m02-KfPpAVysTZGW_-ClMg.png" data-width="845" data-height="243"
+                src="https://cdn-images-1.medium.com/max/800/1*m02-KfPpAVysTZGW_-ClMg.png"></figure>
+            <p name="d83e" id="d83e" class="graf graf--p graf-after--figure">followed by <code
+                class="markup--code markup--p-code">ezlog stop</code> which may not seem like a major feature but is
+              much handy when you don’t have to yourself look for the <code
+                class="markup--code markup--p-code">PID</code> and manually kill it. Much simpler</p>
+            <figure name="d1c6" id="d1c6" class="graf graf--figure graf-after--p"><img class="graf-image"
+                data-image-id="0*enPD87VYR1PMe2KJ.png" data-width="1366" data-height="626"
+                src="https://cdn-images-1.medium.com/max/800/0*enPD87VYR1PMe2KJ.png"></figure>
+            <p name="69ac" id="69ac" class="graf graf--p graf-after--figure">and that’s it this was all about this
+              simple project rest of the commands and updates are just to make it better for example <code
+                class="markup--code markup--p-code">ezlog update</code> manually uninstalling it and reinstalling the
+              latest version also seems like a mess so added this commad <code
+                class="markup--code markup--p-code">update</code> that if you have it installed on your server you can
+              run this to update to latest version</p>
+            <p name="563b" id="563b" class="graf graf--p graf-after--p">but still you will have to do it manually first
+              time which is a very easy process you can use the quickstart part from<code
+                class="markup--code markup--p-code">readme.md</code></p>
+            <div name="a08e" id="a08e" class="graf graf--mixtapeEmbed graf-after--p"><a
+                href="https://github.com/legeRise/ezlog/blob/main/README.md"
+                data-href="https://github.com/legeRise/ezlog/blob/main/README.md"
+                class="markup--anchor markup--mixtapeEmbed-anchor"
+                title="https://github.com/legeRise/ezlog/blob/main/README.md"><strong
+                  class="markup--strong markup--mixtapeEmbed-strong">ezlog/README.md at main ·
+                  legeRise/ezlog</strong><br><em class="markup--em markup--mixtapeEmbed-em">A simple web-based log
+                  viewer. Contribute to legeRise/ezlog development by creating an account on
+                  GitHub.</em>github.com</a><a href="https://github.com/legeRise/ezlog/blob/main/README.md"
+                class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6994347b0deb50108da9851e4ae57bfb"
+                data-thumbnail-img-id="0*3zPRnyP9wcANQKv4"
+                style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*3zPRnyP9wcANQKv4);"></a>
+            </div>
+            <figure name="71c5" id="71c5" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image"
+                data-image-id="1*V2oUM3iUvDU2LzGsyjga9g.png" data-width="944" data-height="512"
+                src="https://cdn-images-1.medium.com/max/800/1*V2oUM3iUvDU2LzGsyjga9g.png"></figure>
+            <p name="7d72" id="7d72" class="graf graf--p graf-after--figure">Please do try and let me know if you like
+              it.</p>
+            <p name="4dbd" id="4dbd" class="graf graf--p graf-after--p">What’s left? There are a few things I already
+              know i am missing and are important like</p>
+            <p name="a636" id="a636" class="graf graf--p graf-after--p"><code
+                class="markup--code markup--p-code">authentication</code> even simple username password would do well
+              and will be safer than exposing your server logs for anyone to consume on web. Haven’t got time to add it
+              yet. but will eventually do.</p>
+            <p name="beb9" id="beb9" class="graf graf--p graf-after--p">Good news for you though if you install and set
+              it up now on your server and later I update and add <code
+                class="markup--code markup--p-code">authentication</code>feature you will like what <code
+                class="markup--code markup--p-code">ezlog update</code> can do.</p>
+            <blockquote name="e60d" id="e60d" class="graf graf--blockquote graf-after--p">Lastly, I know some of you
+              will likely have suggestions for better tools and a valid reason for why I shouldn’t have spent time on
+              this. But call it my <code class="markup--code markup--blockquote-code">developer instinct</code> or <code
+                class="markup--code markup--blockquote-code">Inability to just find an existing product as a normal user</code>
+              I couldn’t find anything that did everything I wanted it to do, so I spent some of my time which I could
+              spend watching a series, on this.</blockquote>
+            <blockquote name="91fc" id="91fc" class="graf graf--blockquote graf-after--blockquote">Thank you for giving
+              it a read. And If you have reached till here</blockquote>
+            <blockquote name="b6fb" id="b6fb" class="graf graf--blockquote graf-after--blockquote"><code
+                class="markup--code markup--blockquote-code">Thank</code></blockquote>
+            <blockquote name="5bd5" id="5bd5" class="graf graf--blockquote graf-after--blockquote"><strong
+                class="markup--strong markup--blockquote-strong">you</strong></blockquote>
+            <blockquote name="93eb" id="93eb" class="graf graf--blockquote graf-after--blockquote"><strong
+                class="markup--strong markup--blockquote-strong"><em
+                  class="markup--em markup--blockquote-em">so</em></strong></blockquote>
+            <blockquote name="af82" id="af82" class="graf graf--blockquote graf-after--blockquote">much</blockquote>
+            <p name="335f" id="335f" class="graf graf--p graf-after--blockquote graf--trailing">Hope you like it</p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <footer>
+      <p>By <a href="https://medium.com/@official.habib92" class="p-author h-card">Muhammad Habib ur Rehman</a> on <a
+          href="https://medium.com/p/95c818db1c14"><time class="dt-published" datetime="2026-03-19T03:02:45.404Z">March
+            19, 2026</time></a>.</p>
+      <p><a href="https://medium.com/@official.habib92/a-simple-web-based-log-viewer-95c818db1c14"
+          class="p-canonical">Canonical link</a></p>
+      <p>Exported from <a href="https://medium.com">Medium</a> on June 8, 2026.</p>
+    </footer>
+  </article>
+</body>
+
+</html>

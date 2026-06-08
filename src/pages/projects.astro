@@ -1,0 +1,52 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects — ${SITE_TITLE}`} description="Projects I've built and worked on." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Projects</h1>
+			<p>A collection of projects I've built and worked on.</p>
+
+			<article class="project-card">
+				<h2><a href="https://github.com/legeRise/ezlog" target="_blank">Ezlog</a></h2>
+				<p>A simple web-based log viewer that lets you track multiple project logs directly in your browser. Built with simplicity in mind — no more SSHing into servers just to check logs.</p>
+				<p><strong>Features:</strong> Multi-project tracking, friendly aliases, easy CLI, simple start/stop commands.</p>
+			</article>
+
+			<article class="project-card">
+				<h2>More Coming Soon...</h2>
+				<p>This space will be updated with more projects as they are built.</p>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.project-card {
+		background: white;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.5em;
+		margin-bottom: 1.5em;
+		box-shadow: var(--box-shadow);
+	}
+	.project-card h2 {
+		margin-top: 0;
+	}
+	.project-card h2 a {
+		text-decoration: none;
+	}
+	.project-card h2 a:hover {
+		text-decoration: underline;
+	}
+</style>
