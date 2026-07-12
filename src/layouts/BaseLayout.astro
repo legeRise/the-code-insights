@@ -8,6 +8,8 @@ const {
 } = Astro.props;
 const pageTitle = title === 'The Code Insight' ? title : `${title} — The Code Insight`;
 const path = Astro.url.pathname;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const url = (path = '') => `${base}${path}`;
 ---
 
 <!doctype html>
@@ -20,8 +22,8 @@ const path = Astro.url.pathname;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <link rel="alternate" type="application/rss+xml" title="The Code Insight" href="/rss.xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Code Insight" href={url('rss.xml')} />
+    <link rel="sitemap" href={url('sitemap-index.xml')} />
     <title>{pageTitle}</title>
     <script is:inline>
       const saved = localStorage.getItem('theme');
@@ -32,10 +34,10 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <nav class="shell nav" aria-label="Main navigation">
-        <a class="brand" href="/">The Code Insight</a>
-        <a class="nav-link" aria-current={path.startsWith('/articles') ? 'page' : undefined} href="/articles">Articles</a>
-        <a class="nav-link" aria-current={path.startsWith('/projects') ? 'page' : undefined} href="/projects">Projects</a>
-        <a class="nav-link" href="/about">About</a>
+        <a class="brand" href={url()}>The Code Insight</a>
+        <a class="nav-link" aria-current={path.startsWith(url('articles')) ? 'page' : undefined} href={url('articles')}>Articles</a>
+        <a class="nav-link" aria-current={path.startsWith(url('projects')) ? 'page' : undefined} href={url('projects')}>Projects</a>
+        <a class="nav-link" aria-current={path === url('about') || path === `${url('about')}/` ? 'page' : undefined} href={url('about')}>About</a>
         <button class="theme-button" id="theme" aria-label="Toggle color theme">◐</button>
       </nav>
     </header>

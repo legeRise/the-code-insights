@@ -34,7 +34,7 @@ img { display: block; max-width: 100%; height: auto; border-radius: .45rem; }
 .nav-link:hover, .nav-link[aria-current="page"] { color: var(--text); }
 .theme-button { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: .35rem; min-width: 2rem; min-height: 2rem; cursor: pointer; font: inherit; }
 main { flex: 1; padding-block: clamp(3rem, 8vw, 5.5rem); }
-.narrow { max-width: 720px; }
+.narrow { max-width: 720px; margin-inline: auto; }
 .home-intro { max-width: 760px; margin-inline: auto; padding-top: clamp(1rem, 4vw, 2.5rem); text-align: center; }
 .eyebrow { color: var(--accent); font-family: ui-monospace, "Cascadia Code", monospace; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 h1, h2, h3 { line-height: 1.18; letter-spacing: 0; }
@@ -62,10 +62,21 @@ h2 { margin-top: 2.4rem; }
 .card { border: 1px solid var(--line); background: transparent; border-radius: .45rem; padding: 1rem; }
 .card h2 { margin: .1rem 0 .5rem; font-size: 1.08rem; }
 .card p { color: var(--muted); margin-bottom: 0; }
-.article-head { border-bottom: 1px solid var(--line); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+.article-head { border-bottom: 1px solid var(--line); padding-bottom: 2.25rem; margin-bottom: 3rem; text-align: center; }
+.article-head h1 { max-width: 24ch; margin: .5rem auto 1.15rem; font-size: clamp(2.25rem, 5vw, 3.5rem); text-wrap: balance; }
+.article-head .lede { margin-inline: auto; text-wrap: balance; }
 .meta { color: var(--muted); font-size: .85rem; }
-.prose { font-size: 1.05rem; }
-.prose h1, .prose h2, .prose h3, .prose code { font-family: ui-monospace, "Cascadia Code", monospace; }
+.prose { font-size: 1.05rem; line-height: 1.8; }
+.prose h2, .prose h3, .prose h4 { line-height: 1.3; text-wrap: balance; }
+.prose h2 { margin: 3.5rem 0 1rem; padding-top: .25rem; font-size: clamp(1.55rem, 3vw, 2rem); }
+.prose h3 { margin: 2.5rem 0 .85rem; font-size: 1.25rem; }
+.prose h4 { margin: 2rem 0 .75rem; font-size: 1.05rem; }
+.prose p { margin: 1.15rem 0; }
+.prose ul, .prose ol { padding-left: 1.5rem; }
+.prose li { padding-left: .25rem; margin-block: .35rem; }
+.prose code { font-family: ui-monospace, "Cascadia Code", monospace; }
+.prose > img, .prose p > img { margin: 1.75rem auto; border: 1px solid var(--line); box-shadow: 0 12px 30px color-mix(in srgb, var(--text) 10%, transparent); }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .prose pre { background: var(--code) !important; padding: 1rem; border-radius: .5rem; overflow: auto; font-size: .9rem; }
 .prose :not(pre) > code { background: var(--surface); padding: .15em .35em; border-radius: .25rem; }
 .prose blockquote { border-left: 3px solid var(--accent); color: var(--muted); margin-left: 0; padding-left: 1.2rem; }
@@ -81,6 +92,11 @@ h2 { margin-top: 2.4rem; }
   h1 { font-size: clamp(2rem, 11vw, 2.6rem); max-width: 12ch; }
   .home-intro h1 { max-width: 12ch; margin-inline: auto; white-space: normal; }
   .lede { font-size: 1rem; }
+  .article-head { text-align: left; margin-bottom: 2.25rem; }
+  .article-head h1 { margin-inline: 0; font-size: clamp(2.15rem, 11vw, 2.75rem); }
+  .article-head .lede { margin-inline: 0; }
+  .prose { font-size: 1rem; line-height: 1.75; }
+  .prose h2 { margin-top: 2.75rem; }
   .home-intro { padding-top: .25rem; }
   .home-links { margin-top: 2rem; }
   .section-head { margin-top: 3rem; }
