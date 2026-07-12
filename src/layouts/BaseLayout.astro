@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; }
+const {
+  title = 'The Code Insight',
+  description = 'Clear notes on code, tools, and the craft of software.',
+} = Astro.props;
+const pageTitle = title === 'The Code Insight' ? title : `${title} — The Code Insight`;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="alternate" type="application/rss+xml" title="The Code Insight" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      const saved = localStorage.getItem('theme');
+      const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+      if (dark) document.documentElement.dataset.theme = 'dark';
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Main navigation">
+        <a class="brand" href="/">The Code Insight</a>
+        <a class="nav-link" aria-current={path.startsWith('/articles') ? 'page' : undefined} href="/articles">Articles</a>
+        <a class="nav-link" aria-current={path.startsWith('/projects') ? 'page' : undefined} href="/projects">Projects</a>
+        <a class="nav-link" href="/about">About</a>
+        <button class="theme-button" id="theme" aria-label="Toggle color theme">◐</button>
+      </nav>
+    </header>
+    <main class="shell"><slot /></main>
+    <footer class="site-footer"><div class="shell">© {new Date().getFullYear()} The Code Insight</div></footer>
+    <script>
+      document.querySelector('#theme')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    </script>
+  </body>
+</html>

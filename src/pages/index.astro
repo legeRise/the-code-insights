@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="home-intro">
+    <p class="eyebrow">Minimal Blog</p>
+    <h1>Things I learn while building.</h1>
+    <p class="lede">A quiet place for notes, articles, and the projects I have built over time.</p>
+  </section>
+
+  <section class="home-links" aria-label="Site sections">
+    <a class="home-link" href="/articles">
+      <span>Articles</span>
+      <small>Writing, notes, and lessons learned.</small>
+    </a>
+    <a class="home-link" href="/projects">
+      <span>Projects</span>
+      <small>Everything I have built and want to remember.</small>
+    </a>
+    <a class="home-link" href="/about">
+      <span>About</span>
+      <small>A little context behind the work.</small>
+    </a>
+  </section>
+</BaseLayout>
