@@ -47,13 +47,13 @@ Whatever the reason I couldn’t find anything until I hopped on to
 
 A simple web based log viewer that you can simply install on your server and just point it to your log file following the exact guide and your are all set you get your logs for that project streamed on your browser with a very basic authentication
 
-![frontail](image.png)
+![frontail](story-01/image.png)
 
 That’s all what I wanted. And here my journey for a perfect way to track logs ends.
 
 *The*
 
-*End*
+*End*story-01/
 
 ---
 
@@ -97,7 +97,7 @@ Won’t brag but at least I was able to create something I and my colleagues reg
 
 ### 1. Tracks Multiple Project ( The Major Problem I had faced )
 
-![first](image-1.png)
+![first](story-01/image-1.png)
 
 You can see one tab per log file
 
@@ -122,14 +122,14 @@ Or if you want to see list of all the projects that are being tracked. And many 
 
 #### 1. To list all tracked files `ezlog list`
 
-![List Tracked Files](image-2.png)
+![List Tracked Files](story-01/image-2.png)
 
 This command lists aliases -> paths 
 
 #### 2.  Adding a new file to be tracked simple `ezlog add <alias> <file-path>`
 
 
-![Adding a new file](image-3.png)
+![Adding a new file](story-01/image-3.png)
 
 so you can run this `add` command everytime you want to add a new file to be tracked and you are good to go
 
@@ -137,17 +137,17 @@ so you can run this `add` command everytime you want to add a new file to be tra
 
 for that you can use `ezlog start`
 
-![Starting Server](image-4.png)
+![Starting Server](story-01/image-4.png)
 
 followed by `ezlog stop` which may not seem like a major feature but is much handy when you don’t have to yourself look for the PID and manually kill it. Much simpler
 
-![alt text](image-5.png)
+![alt text](story-01/image-5.png)
 
 and that’s it this was all about this simple project rest of the commands and updates are just to make it better for example `ezlog update` manually uninstalling it and reinstalling the latest version also seems like a mess so added this commad `update` that if you have it installed on your server you can run this to update to latest version
 
 but still you will have to do it manually first time which is a very easy process you can use the quickstart part from `readme.md`
 
-![quickstart guide](image-6.png)
+![quickstart guide](story-01/image-6.png)
 
 Please do try and let me know if you like it.
 
