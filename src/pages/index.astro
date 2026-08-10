@@ -4,17 +4,17 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 
 <BaseLayout
-  title="Muhammad Habib ur Rehman Khan — Backend / Full-Stack Developer"
-  description="Muhammad Habib ur Rehman Khan is a Python/Django backend and full-stack developer building production systems, APIs, AI products, and mobile-facing applications."
+  title="The Code Insight"
+  description="Software projects, production systems, technical articles, and engineering work by Muhammad Habib ur Rehman Khan."
 >
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Backend / Full-Stack Developer</p>
+      <p class="eyebrow">Software · Systems · Writing</p>
       <h1>Muhammad Habib<br />ur Rehman Khan</h1>
       <p class="hero-lede">I build production software, AI products, APIs, and business systems — from backend architecture to the interfaces people actually use.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#work">Explore my work</a>
-        <a class="button" href="mailto:official.habib92@gmail.com">Get in touch</a>
+        <a class="button" href={`${base}contact`}>Start a conversation</a>
       </div>
       <div class="hero-meta"><span>Python · Django · DRF</span><span>Pakistan</span><span>Building since 2020</span></div>
     </div>
@@ -34,7 +34,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
   </section>
 
   <section id="work" class="portfolio-section">
-    <div class="section-title"><div><p class="eyebrow">Selected work</p><h2>Things I've actually built.</h2></div><a href={`${base}projects`}>See all work →</a></div>
+    <div class="section-title"><div><p class="eyebrow">Selected work</p><h2>Things I've actually built.</h2></div><a href={`${base}projects`}>All work →</a></div>
     <div class="project-grid">
       <a class="project-card project-featured" href={`${base}projects/eztajweed`}>
         <div class="project-top"><span class="project-number">01</span><span class="tag">Personal</span></div>
@@ -53,30 +53,30 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
       <a class="project-card" href={`${base}projects/upkeep`}>
         <div class="project-top"><span class="project-number">03</span><span class="tag">Professional</span></div>
         <h3>Upkeep Shoes</h3>
-        <p>Production business and mobile platform for shoe restoration, covering orders, employee workflows, statuses, notifications, invoices, and customer tracking.</p>
+        <p>Production business and customer-facing platform for shoe restoration, covering orders, employee workflows, statuses, notifications, invoices, and customer tracking.</p>
         <div class="chips"><span>Django</span><span>DRF</span><span>React Native</span></div>
-        <span class="project-arrow">Case study · Visit product ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/arbzoom`}>
-        <div class="project-top"><span class="project-number">04</span><span class="tag">Professional</span></div>
-        <h3>ArbZoom</h3>
-        <p>Production arbitrage betting platform with opportunity discovery, wallets, bet workflows, admin controls, and scheduled automation.</p>
-        <div class="chips"><span>Django</span><span>Celery</span><span>HTMX</span></div>
-        <span class="project-arrow">Case study · Visit product ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/hotshot-ai`}>
-        <div class="project-top"><span class="project-number">05</span><span class="tag">Professional · AI</span></div>
-        <h3>Hotshot AI</h3>
-        <p>AI-powered product intelligence experience using product data for retrieval, product lookup, FAQs, and solution suggestions.</p>
-        <div class="chips"><span>Flask</span><span>OpenAI</span><span>REST APIs</span></div>
-        <span class="project-arrow">Case study · Visit product ↗</span>
+        <span class="project-arrow">View case study ↗</span>
       </a>
       <a class="project-card" href={`${base}projects/yole-validation`}>
-        <div class="project-top"><span class="project-number">06</span><span class="tag">Professional</span></div>
+        <div class="project-top"><span class="project-number">04</span><span class="tag">Professional</span></div>
         <h3>Yole Validation System</h3>
-        <p>Role-based product and store validation system with approval workflows, auditing, notifications, access control, and process tracking.</p>
+        <p>Role-based approval and validation flows for products and stores, with auditing, notifications, access control, and process tracking.</p>
         <div class="chips"><span>Django</span><span>HTMX</span><span>JavaScript</span></div>
-        <span class="project-arrow">Case study · Company ↗</span>
+        <span class="project-arrow">View case study ↗</span>
+      </a>
+      <a class="project-card" href={`${base}projects/arbzoom`}>
+        <div class="project-top"><span class="project-number">05</span><span class="tag">Professional</span></div>
+        <h3>ArbZoom</h3>
+        <p>Arbitrage betting platform features spanning opportunities, wallets, bet approvals, admin controls, and scheduled platform workflows.</p>
+        <div class="chips"><span>Django</span><span>Celery</span><span>HTMX</span></div>
+        <span class="project-arrow">View case study ↗</span>
+      </a>
+      <a class="project-card" href={`${base}projects/hotshot-ai`}>
+        <div class="project-top"><span class="project-number">06</span><span class="tag">Professional · AI</span></div>
+        <h3>Hotshot AI</h3>
+        <p>Product intelligence experience using product data for structured retrieval, product lookup, FAQ-style answers, and solution suggestions.</p>
+        <div class="chips"><span>Flask</span><span>OpenAI</span><span>REST APIs</span></div>
+        <span class="project-arrow">View case study ↗</span>
       </a>
     </div>
   </section>
@@ -100,14 +100,14 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
   </section>
 
   <section class="notes-section">
-    <div class="section-title"><div><p class="eyebrow">Articles</p><h2>I write about what I learn.</h2></div><a href={`${base}articles`}>Read my articles →</a></div>
-    <p class="lede">Technical articles, lessons learned, debugging stories, and ideas from building real software.</p>
+    <div class="section-title"><div><p class="eyebrow">Articles</p><h2>I write about what I learn and build.</h2></div><a href={`${base}articles`}>Read articles →</a></div>
+    <p class="lede">Technical articles, practical lessons, and ideas from the systems and products I work on.</p>
   </section>
 
   <section class="contact-section">
-    <p class="eyebrow">Have a project?</p>
-    <h2>Let's build something useful.</h2>
-    <p>For work, collaboration, or just a technical conversation.</p>
-    <div class="hero-actions"><a class="button button-primary" href="mailto:official.habib92@gmail.com">official.habib92@gmail.com</a><a class="button" href="https://github.com/legeRise" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    <p class="eyebrow">Contact</p>
+    <h2>Have something worth building?</h2>
+    <p>Tell me what you're working on and let's start there.</p>
+    <div class="hero-actions"><a class="button button-primary" href={`${base}contact`}>Start a conversation →</a><a class="button" href="https://github.com/legeRise" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </section>
 </BaseLayout>
