@@ -7,148 +7,230 @@ const resumePdf = `${base}habib_resume_9_aug_2026.pdf`;
 <BaseLayout title="My Resume">
   <article class="resume-page">
     <header class="resume-head">
-      <div>
-        <p class="eyebrow">My Resume</p>
-        <h1>My resume, in full.</h1>
-        <p class="lede">A clean view of the same PDF you can download below.</p>
-      </div>
-      <a class="button button-primary" href={resumePdf} download="Muhammad_Habib_ur_Rehman_Khan_Resume.pdf">Download Resume ↓</a>
+      <p class="eyebrow">MY RESUME</p>
+      <h1>A closer look.</h1>
+      <p class="lede">My current resume, presented as a single, focused document.</p>
     </header>
 
-    <section class="resume-glass" aria-label="Resume PDF viewer">
-      <div class="resume-chrome">
-        <div class="chrome-lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span class="chrome-title">habib_resume_9_aug_2026.pdf</span>
-        <a href={resumePdf} target="_blank" rel="noreferrer">Open ↗</a>
-      </div>
-      <div class="resume-paper">
-        <iframe title="Muhammad Habib ur Rehman Khan resume" src={resumePdf}></iframe>
+    <section class="resume-stage" aria-label="Resume preview">
+      <div class="light light-a" aria-hidden="true"></div>
+      <div class="light light-b" aria-hidden="true"></div>
+      <div class="light light-c" aria-hidden="true"></div>
+
+      <div class="glass-frame">
+        <div class="glass-shine" aria-hidden="true"></div>
+        <div class="resume-page-wrap">
+          <canvas id="resume-canvas" aria-label="Preview of Muhammad Habib ur Rehman Khan's resume"></canvas>
+          <div id="resume-loading" class="loading">Loading resume…</div>
+        </div>
       </div>
     </section>
   </article>
 </BaseLayout>
 
+<script>
+  const pdfUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/habib_resume_9_aug_2026.pdf`;
+  const canvas = document.querySelector('#resume-canvas');
+  const loading = document.querySelector('#resume-loading');
+
+  if (canvas instanceof HTMLCanvasElement && loading instanceof HTMLElement) {
+    import('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs')
+      .then(async ({ getDocument, GlobalWorkerOptions }) => {
+        GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs';
+        const pdf = await getDocument(pdfUrl).promise;
+        const page = await pdf.getPage(1);
+
+        const wrap = canvas.parentElement;
+        if (!wrap) return;
+
+        const baseViewport = page.getViewport({ scale: 1 });
+        const availableWidth = Math.max(280, wrap.clientWidth - 34);
+        const scale = availableWidth / baseViewport.width;
+        const viewport = page.getViewport({ scale });
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+        canvas.width = Math.floor(viewport.width * ratio);
+        canvas.height = Math.floor(viewport.height * ratio);
+        canvas.style.width = `${viewport.width}px`;
+        canvas.style.height = `${viewport.height}px`;
+
+        const context = canvas.getContext('2d');
+        if (!context) return;
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        await page.render({ canvasContext: context, viewport }).promise;
+        loading.remove();
+      })
+      .catch(() => {
+        loading.textContent = 'Resume preview unavailable.';
+      });
+  }
+</script>
+
 <style>
   .resume-page {
-    padding: clamp(4rem, 8vw, 6.5rem) 0 5rem;
+    padding: clamp(4.5rem, 8vw, 7rem) 0 7rem;
   }
 
   .resume-head {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 2.25rem;
+    width: min(760px, 100%);
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 .8rem;
+    color: #168b76;
+    font: 700 .68rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .18em;
   }
 
   .resume-head h1 {
     margin: 0;
-    max-width: 14ch;
-    font-size: clamp(2.35rem, 5vw, 4.25rem);
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    line-height: .94;
+    letter-spacing: -.065em;
   }
 
-  .resume-head .lede {
-    margin: .85rem 0 0;
+  .lede {
+    margin: 1.15rem auto 0;
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
-  /* The viewer is intentionally restrained: the glass effect frames the real PDF
-     instead of trying to restyle or recreate the resume itself. */
-  .resume-glass {
+  .resume-stage {
     position: relative;
-    padding: .75rem;
-    border: 1px solid color-mix(in srgb, var(--text) 13%, transparent);
-    border-radius: 1.5rem;
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--surface) 76%, transparent),
-      color-mix(in srgb, var(--bg) 66%, transparent));
-    box-shadow:
-      0 32px 90px rgba(20, 30, 25, .14),
-      inset 0 1px 0 rgba(255,255,255,.72),
-      inset 0 0 0 1px rgba(255,255,255,.16);
-    backdrop-filter: blur(24px) saturate(125%);
-    -webkit-backdrop-filter: blur(24px) saturate(125%);
-    overflow: hidden;
+    width: min(920px, 100%);
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    isolation: isolate;
   }
 
-  [data-theme="dark"] .resume-glass {
-    box-shadow:
-      0 32px 90px rgba(0, 0, 0, .34),
-      inset 0 1px 0 rgba(255,255,255,.08),
-      inset 0 0 0 1px rgba(255,255,255,.03);
-  }
-
-  .resume-glass::before {
-    content: "";
+  /* The light is deliberately soft and directional: it should feel like a sheet of glass
+     catching light over a physical page, not like a glowing application window. */
+  .light {
     position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 999px;
+    filter: blur(46px);
+    opacity: .72;
+  }
+
+  .light-a {
+    width: 55%;
+    height: 24%;
+    left: 5%;
+    top: 4%;
+    transform: rotate(-9deg);
+    background: rgba(31, 182, 151, .27);
+  }
+
+  .light-b {
+    width: 44%;
+    height: 23%;
+    right: 2%;
+    bottom: 5%;
+    transform: rotate(10deg);
+    background: rgba(87, 142, 255, .17);
+  }
+
+  .light-c {
+    width: 32%;
+    height: 15%;
+    right: 25%;
+    top: 18%;
+    transform: rotate(-20deg);
+    background: rgba(255, 255, 255, .75);
+    filter: blur(34px);
+  }
+
+  .glass-frame {
+    position: relative;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .18);
+    box-shadow:
+      0 35px 80px rgba(26, 44, 40, .13),
+      0 0 55px rgba(35, 176, 147, .08),
+      inset 0 1px 0 rgba(255, 255, 255, .98),
+      inset 0 0 0 1px rgba(255, 255, 255, .30);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+  }
+
+  .glass-shine {
+    position: absolute;
+    z-index: 2;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 28%);
+    border-radius: inherit;
+    background:
+      linear-gradient(112deg,
+        transparent 8%,
+        rgba(255,255,255,.55) 22%,
+        rgba(255,255,255,.08) 31%,
+        transparent 42%),
+      linear-gradient(180deg, rgba(255,255,255,.24), transparent 22%);
+    opacity: .75;
   }
 
-  .resume-chrome {
+  .resume-page-wrap {
     position: relative;
     z-index: 1;
-    min-height: 2.8rem;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 650px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow:
+      0 10px 35px rgba(20, 30, 28, .14),
+      0 0 0 1px rgba(25, 35, 33, .04);
+  }
+
+  canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .loading {
+    position: absolute;
+    inset: 0;
     display: grid;
-    grid-template-columns: 5rem 1fr 5rem;
-    align-items: center;
-    gap: .75rem;
-    padding: 0 .55rem;
-    color: var(--muted);
-    font: .68rem ui-monospace, "Cascadia Code", monospace;
-  }
-
-  .chrome-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .resume-chrome a {
-    justify-self: end;
-    color: var(--muted);
-  }
-
-  .resume-chrome a:hover { color: var(--accent); }
-
-  .chrome-lights { display: flex; gap: .35rem; }
-  .chrome-lights i {
-    width: .48rem;
-    height: .48rem;
-    border-radius: 50%;
-    display: block;
-    background: color-mix(in srgb, var(--text) 18%, transparent);
-  }
-  .chrome-lights i:first-child { background: color-mix(in srgb, var(--accent) 58%, var(--surface)); }
-
-  .resume-paper {
-    position: relative;
-    height: min(82vh, 1050px);
-    min-height: 680px;
-    overflow: hidden;
-    border-radius: 1rem;
-    background: #fff;
-    box-shadow: 0 16px 45px rgba(0,0,0,.16);
-  }
-
-  .resume-paper iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    background: #fff;
+    place-items: center;
+    color: #75807d;
+    font-size: .85rem;
   }
 
   @media (max-width: 700px) {
-    .resume-head {
-      align-items: start;
-      flex-direction: column;
+    .resume-page {
+      padding: 4rem 0 5rem;
     }
 
-    .resume-head .button { width: 100%; }
-    .resume-glass { padding: .45rem; border-radius: 1rem; }
-    .resume-chrome { grid-template-columns: 3.5rem 1fr 3.5rem; }
-    .resume-paper { height: 76vh; min-height: 560px; border-radius: .7rem; }
+    .resume-head {
+      margin-bottom: 2rem;
+    }
+
+    .resume-head h1 {
+      font-size: clamp(2.8rem, 13vw, 4.2rem);
+    }
+
+    .resume-stage {
+      padding: 1.25rem .35rem;
+    }
+
+    .glass-frame {
+      padding: 8px;
+      border-radius: 19px;
+    }
+
+    .resume-page-wrap {
+      min-height: 0;
+      border-radius: 11px;
+    }
   }
 </style>
