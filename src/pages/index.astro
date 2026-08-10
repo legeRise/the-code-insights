@@ -34,7 +34,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
   </section>
 
   <section id="work" class="portfolio-section">
-    <div class="section-title"><div><p class="eyebrow">Selected work</p><h2>Things I've actually built.</h2></div><a href={`${base}projects`}>All projects →</a></div>
+    <div class="section-title"><div><p class="eyebrow">Selected work</p><h2>Things I've actually built.</h2></div><a href={`${base}projects`}>See all work →</a></div>
     <div class="project-grid">
       <a class="project-card project-featured" href={`${base}projects/eztajweed`}>
         <div class="project-top"><span class="project-number">01</span><span class="tag">Personal</span></div>
@@ -43,43 +43,47 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
         <div class="chips"><span>React Native</span><span>Django REST</span><span>PostgreSQL</span></div>
         <span class="project-arrow">View project ↗</span>
       </a>
-      <a class="project-card" href="https://github.com/legeRise/ezclip-backend" target="_blank" rel="noreferrer">
-        <div class="project-top"><span class="project-number">02</span><span class="tag">AI product</span></div>
+      <a class="project-card" href={`${base}projects/ezclip`}>
+        <div class="project-top"><span class="project-number">02</span><span class="tag">Personal · AI</span></div>
         <h3>EzClip</h3>
         <p>AI video generation backend that turns scripts into narrated videos with generated visuals, captions, cinematic effects, and live progress tracking.</p>
         <div class="chips"><span>Django</span><span>Celery</span><span>Redis</span><span>R2</span></div>
-        <span class="project-arrow">View on GitHub ↗</span>
+        <span class="project-arrow">View project ↗</span>
       </a>
-      <article class="project-card">
+      <a class="project-card" href={`${base}projects/upkeep`}>
         <div class="project-top"><span class="project-number">03</span><span class="tag">Professional</span></div>
         <h3>Upkeep Shoes</h3>
-        <p>Business management system covering customer orders, employee tasks, statuses, reports, notifications, invoices, and operational workflows.</p>
-        <div class="chips"><span>Django</span><span>DRF</span><span>JavaScript</span></div>
-      </article>
-      <article class="project-card">
+        <p>Production business and mobile platform for shoe restoration, covering orders, employee workflows, statuses, notifications, invoices, and customer tracking.</p>
+        <div class="chips"><span>Django</span><span>DRF</span><span>React Native</span></div>
+        <span class="project-arrow">Case study · Visit product ↗</span>
+      </a>
+      <a class="project-card" href={`${base}projects/arbzoom`}>
         <div class="project-top"><span class="project-number">04</span><span class="tag">Professional</span></div>
-        <h3>Yole Validation System</h3>
-        <p>Role-based approval and validation flows for products and stores, with auditing, notifications, access control, and process tracking.</p>
-        <div class="chips"><span>Django</span><span>HTMX</span><span>JavaScript</span></div>
-      </article>
-      <article class="project-card">
-        <div class="project-top"><span class="project-number">05</span><span class="tag">Professional</span></div>
-        <h3>Arbzoom</h3>
-        <p>Arbitrage betting platform features spanning opportunities, wallets, bet approvals, admin controls, and scheduled platform workflows.</p>
+        <h3>ArbZoom</h3>
+        <p>Production arbitrage betting platform with opportunity discovery, wallets, bet workflows, admin controls, and scheduled automation.</p>
         <div class="chips"><span>Django</span><span>Celery</span><span>HTMX</span></div>
-      </article>
-      <article class="project-card">
-        <div class="project-top"><span class="project-number">06</span><span class="tag">AI product</span></div>
+        <span class="project-arrow">Case study · Visit product ↗</span>
+      </a>
+      <a class="project-card" href={`${base}projects/hotshot-ai`}>
+        <div class="project-top"><span class="project-number">05</span><span class="tag">Professional · AI</span></div>
         <h3>Hotshot AI</h3>
-        <p>Product chatbot using product data for structured retrieval, product lookup, FAQ-style answers, and solution suggestions.</p>
+        <p>AI-powered product intelligence experience using product data for retrieval, product lookup, FAQs, and solution suggestions.</p>
         <div class="chips"><span>Flask</span><span>OpenAI</span><span>REST APIs</span></div>
-      </article>
+        <span class="project-arrow">Case study · Visit product ↗</span>
+      </a>
+      <a class="project-card" href={`${base}projects/yole-validation`}>
+        <div class="project-top"><span class="project-number">06</span><span class="tag">Professional</span></div>
+        <h3>Yole Validation System</h3>
+        <p>Role-based product and store validation system with approval workflows, auditing, notifications, access control, and process tracking.</p>
+        <div class="chips"><span>Django</span><span>HTMX</span><span>JavaScript</span></div>
+        <span class="project-arrow">Case study · Company ↗</span>
+      </a>
     </div>
   </section>
 
   <section class="experience-section">
     <div class="section-title"><div><p class="eyebrow">Experience</p><h2>Where I've worked.</h2></div></div>
-    <div class="experience-item"><div class="experience-date">Aug 2024 — Present</div><div><h3>Better AI <small>Python Developer</small></h3><p>Production Django/Flask applications, REST APIs, Celery workflows, AI integrations, third-party APIs, frontend integration, Linux/Nginx deployment support, and production debugging.</p></div></div>
+    <div class="experience-item"><div class="experience-date">Aug 2024 — Present</div><div><h3>Better AI <small>Python Developer</small></h3><p>Production Django/Flask applications, REST APIs, Celery workflows, AI integrations, third-party APIs, frontend integration, Linux/Nginx deployment support, and production debugging.</p><a class="inline-link" href="https://thebetterai.com/" target="_blank" rel="noreferrer">Visit Better AI ↗</a></div></div>
     <div class="experience-item"><div class="experience-date">2020 — 2024</div><div><h3>COMSATS University Islamabad <small>BS Software Engineering</small></h3><p>Software Engineering · Jun 2020 — Jun 2024</p></div></div>
   </section>
 
@@ -96,8 +100,8 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
   </section>
 
   <section class="notes-section">
-    <div class="section-title"><div><p class="eyebrow">Engineering notes</p><h2>I write about what I build.</h2></div><a href={`${base}articles`}>Read notes →</a></div>
-    <p class="lede">The Code Insight started as a place for technical notes. It stays here — now alongside the work behind them.</p>
+    <div class="section-title"><div><p class="eyebrow">Articles</p><h2>I write about what I learn.</h2></div><a href={`${base}articles`}>Read my articles →</a></div>
+    <p class="lede">Technical articles, lessons learned, debugging stories, and ideas from building real software.</p>
   </section>
 
   <section class="contact-section">
