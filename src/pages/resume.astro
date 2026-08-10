@@ -22,6 +22,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div id="resume-loading" class="loading">Loading resume…</div>
         </div>
       </div>
+
+      <div class="resume-actions">
+        <a class="download-resume" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/habib_resume_9_aug_2026.pdf`} download>
+          <span aria-hidden="true">↓</span>
+          Download Resume
+        </a>
+      </div>
     </section>
   </article>
 </BaseLayout>
@@ -46,7 +53,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         const cssScale = availableWidth / baseViewport.width;
         const viewport = page.getViewport({ scale: cssScale });
 
-        // Render substantially above CSS resolution so text stays crisp on high-DPI displays.
+        // Render above CSS resolution so the resume remains crisp on high-DPI displays.
         const outputScale = Math.min(Math.max(window.devicePixelRatio || 1, 2), 4);
         canvas.width = Math.floor(viewport.width * outputScale);
         canvas.height = Math.floor(viewport.height * outputScale);
@@ -102,7 +109,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     position: relative;
     width: min(920px, 100%);
     margin: 0 auto;
-    padding: 2.75rem 2.5rem;
+    padding: 2.75rem 2.5rem 1rem;
     isolation: isolate;
   }
 
@@ -111,26 +118,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     z-index: -1;
     pointer-events: none;
     border-radius: 999px;
-    filter: blur(48px);
+    filter: blur(52px);
     opacity: .72;
   }
 
   .light-a {
     width: 55%;
     height: 24%;
-    left: 5%;
-    top: 4%;
+    left: 2%;
+    top: 3%;
     transform: rotate(-9deg);
-    background: rgba(31, 182, 151, .27);
+    background: rgba(169, 92, 255, .23);
   }
 
   .light-b {
     width: 44%;
     height: 23%;
-    right: 2%;
-    bottom: 5%;
+    right: 1%;
+    bottom: 8%;
     transform: rotate(10deg);
-    background: rgba(87, 142, 255, .17);
+    background: rgba(102, 116, 255, .17);
   }
 
   .light-c {
@@ -139,23 +146,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     right: 25%;
     top: 18%;
     transform: rotate(-20deg);
-    background: rgba(255, 255, 255, .75);
+    background: rgba(255, 255, 255, .78);
     filter: blur(34px);
   }
 
-  /* The glass is only the frame. It never sits between the viewer and the PDF,
-     so the rendered resume remains perfectly sharp. */
+  /* A thin glass sheet around the resume — the PDF itself stays completely sharp. */
   .glass-frame {
     position: relative;
     padding: 15px;
     border: 1px solid rgba(255, 255, 255, .96);
     border-radius: 28px;
-    background: rgba(255, 255, 255, .20);
+    background: rgba(255, 255, 255, .18);
     box-shadow:
-      0 35px 80px rgba(26, 44, 40, .13),
-      0 0 65px rgba(35, 176, 147, .12),
+      0 35px 80px rgba(26, 25, 45, .13),
+      0 0 65px rgba(158, 82, 255, .18),
+      0 0 24px rgba(100, 126, 255, .11),
       inset 0 1px 0 rgba(255, 255, 255, .98),
-      inset 0 0 0 1px rgba(255, 255, 255, .35);
+      inset 0 0 0 1px rgba(255, 255, 255, .38);
   }
 
   .glass-frame::before,
@@ -168,8 +175,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .glass-frame::before {
     inset: -1px;
-    border: 1px solid rgba(119, 239, 211, .24);
-    box-shadow: 0 0 28px rgba(64, 210, 177, .13);
+    border: 1px solid rgba(193, 132, 255, .30);
+    box-shadow:
+      0 0 28px rgba(165, 82, 255, .18),
+      inset 0 0 22px rgba(112, 132, 255, .07);
   }
 
   .glass-frame::after {
@@ -177,8 +186,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     left: 7%;
     width: 36%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent);
-    box-shadow: 0 0 12px rgba(255,255,255,.9);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.98), rgba(209,164,255,.72), transparent);
+    box-shadow: 0 0 14px rgba(194, 130, 255, .8);
   }
 
   .glass-shine {
@@ -190,7 +199,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     height: 38%;
     pointer-events: none;
     border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(255,255,255,.25), transparent 68%);
+    background: radial-gradient(ellipse, rgba(255,255,255,.28), rgba(205,158,255,.06) 36%, transparent 70%);
     filter: blur(8px);
   }
 
@@ -223,6 +232,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: .85rem;
   }
 
+  .resume-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.6rem;
+  }
+
+  .download-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .78rem 1.15rem;
+    border: 1px solid rgba(155, 83, 235, .28);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #9b4de8, #7559d9);
+    color: #fff;
+    font-weight: 700;
+    font-size: .88rem;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow:
+      0 10px 25px rgba(125, 75, 210, .20),
+      0 0 22px rgba(166, 82, 255, .12),
+      inset 0 1px 0 rgba(255,255,255,.24);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+
+  .download-resume:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+    box-shadow:
+      0 14px 30px rgba(125, 75, 210, .25),
+      0 0 30px rgba(166, 82, 255, .18),
+      inset 0 1px 0 rgba(255,255,255,.3);
+  }
+
+  .download-resume span {
+    font-size: 1.05rem;
+    line-height: .8;
+  }
+
   @media (max-width: 700px) {
     .resume-page {
       padding: 4rem 0 5rem;
@@ -237,7 +286,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .resume-stage {
-      padding: 1.25rem .35rem;
+      padding: 1.25rem .35rem 1rem;
     }
 
     .glass-frame {
