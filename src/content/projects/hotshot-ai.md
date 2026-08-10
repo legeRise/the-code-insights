@@ -1,7 +1,7 @@
 ---
 title: "Hotshot AI"
 description: "An AI-powered product intelligence experience using product data for retrieval, product lookup, FAQs, and solution suggestions."
-url: "https://hotshot.ai/"
+url: "https://hotshotai.thebetterai.com/"
 type: "professional"
 featured: true
 order: 6
@@ -9,7 +9,7 @@ order: 6
 
 Hotshot AI is an AI product experience where I worked on product-data retrieval, structured product lookup, FAQ-style answers, and solution suggestions.
 
-The public Hotshot AI site lets visitors see the product and its current experience.
+The public Hotshot AI platform lets visitors see the product and its current experience.
 
 ## Stack
 
