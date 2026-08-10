@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const resumePdf = `${base}Muhammad_Habib_ur_Rehman_Khan_CV_Final(3).pdf`;
+---
+
+<BaseLayout title="Resume">
+  <article class="resume-page">
+    <div class="resume-toolbar">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h1>Professional experience, at a glance.</h1>
+      </div>
+      <a class="button button-primary" href={resumePdf} download>Download PDF ↓</a>
+    </div>
+
+    <section class="resume-sheet">
+      <header class="resume-header">
+        <div>
+          <h2>Muhammad Habib ur Rehman Khan</h2>
+          <p>Backend / Full-Stack Developer</p>
+        </div>
+        <div class="resume-contact">
+          <span>Attock District, Pakistan</span>
+          <a href="https://github.com/legeRise" target="_blank" rel="noreferrer">github.com/legeRise ↗</a>
+          <span>WhatsApp available via Contact</span>
+        </div>
+      </header>
+
+      <section class="resume-block">
+        <h3>Profile</h3>
+        <p>Python/Django developer building production business systems, REST APIs, dashboards, background jobs, AI integrations, and mobile-facing backend features. Experienced with Django/DRF, Flask/FastAPI, Celery, PostgreSQL, OpenAI/LangChain, frontend integration, and Linux/Nginx deployment support.</p>
+      </section>
+
+      <section class="resume-block">
+        <h3>Core skills</h3>
+        <div class="resume-skills">
+          <div><strong>Backend</strong><span>Python, Django, Django REST Framework, Flask, FastAPI</span></div>
+          <div><strong>Database & Async</strong><span>PostgreSQL, Celery, background jobs, data handling</span></div>
+          <div><strong>Frontend / Mobile</strong><span>JavaScript, React, HTMX, React Native, HTML/CSS</span></div>
+          <div><strong>AI & APIs</strong><span>OpenAI, LangChain, REST APIs, third-party integrations</span></div>
+          <div><strong>Deployment</strong><span>Linux, Nginx, Git, production debugging</span></div>
+        </div>
+      </section>
+
+      <section class="resume-block">
+        <h3>Work experience</h3>
+        <div class="resume-entry">
+          <div class="resume-entry-top"><strong>Better AI — Python Developer</strong><span>Aug 2024 — Present</span></div>
+          <ul>
+            <li>Built and maintained production Django/Flask apps for dashboards, order workflows, approvals, notifications, reports, and API-driven products.</li>
+            <li>Developed REST APIs and backend logic for customer orders, employee tasks, status tracking, invoice flows, and operational dashboards.</li>
+            <li>Implemented async/background processing with Celery for notifications, scheduled work, data handling, and production workflows.</li>
+            <li>Integrated OpenAI/LangChain features with product data for chat-based support and retrieval-style user experiences.</li>
+            <li>Supported third-party APIs, frontend integration, Linux/Nginx deployment support, bug fixes, and production debugging.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-block">
+        <h3>Professional work</h3>
+        <div class="resume-projects">
+          <div><strong>Yole Hub — Validation System</strong><span>Feb 2025 — Present · hub.yole.com</span><p>Role-based approval flows for products and stores, auditing, users, notifications, access control, and process tracking.</p></div>
+          <div><strong>Upkeep Shoes — Business Management System</strong><span>Sep 2025 — Present · upkeep.thebetterai.com</span><p>Backend APIs and dashboard workflows for customer orders, employee tasks, statuses, reports, notifications, invoices, and operational workflows.</p></div>
+          <div><strong>Arbzoom — Arbitrage Betting Platform</strong><span>Aug 2024 — Aug 2025</span><p>Arbitrage opportunities, user wallets, bet approvals, admin controls, background tasks, and daily platform workflows.</p></div>
+          <div><strong>Hotshot AI — Product Chatbot</strong><span>Jan 2025 — Mar 2025 · hotshotai.thebetterai.com</span><p>Flask/OpenAI customer assistant for HotShotSecret.com with product questions, recommendations, guidance, and truck troubleshooting.</p></div>
+        </div>
+      </section>
+
+      <section class="resume-block">
+        <h3>Personal projects</h3>
+        <div class="resume-projects">
+          <div><strong>EzClip — AI Video Generation Platform</strong><span>Open-source backend · Android app available</span><p>Script-to-scene generation, automatic narration, generated scene imagery, and fully narrated video assembly. Built with Django, DRF, Celery, Redis, OpenAI, Runware, MoviePy, SSE, and Cloudflare R2.</p></div>
+          <div><strong>EzTajweed — Quran Learning Application</strong><span>Published on Google Play</span><p>React Native Quran learning application featuring an interactive IndoPak 16-line Mushaf, ayah-level navigation, audio, translations, Tajweed explanations, and quiz-based practice.</p></div>
+        </div>
+      </section>
+
+      <section class="resume-block">
+        <h3>Education</h3>
+        <div class="resume-entry-top"><strong>COMSATS University Islamabad — BS Software Engineering</strong><span>Jun 2020 — Jun 2024</span></div>
+      </section>
+    </section>
+  </article>
+</BaseLayout>
