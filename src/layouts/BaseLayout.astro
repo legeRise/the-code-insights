@@ -3,10 +3,10 @@ import '../styles/global.css';
 
 interface Props { title?: string; description?: string; }
 const {
-  title = 'Muhammad Habib ur Rehman Khan — Backend / Full-Stack Developer',
-  description = 'Muhammad Habib ur Rehman Khan is a Python/Django backend and full-stack developer building production systems, APIs, AI products, and mobile-facing applications.',
+  title = 'The Code Insight — Software, Systems & Articles',
+  description = 'The Code Insight is Muhammad Habib ur Rehman Khan\'s space for software projects, production systems, technical articles, and engineering work.',
 } = Astro.props;
-const pageTitle = title === 'Muhammad Habib ur Rehman Khan — Backend / Full-Stack Developer' ? title : `${title} — Habib Khan`;
+const pageTitle = title === 'The Code Insight — Software, Systems & Articles' ? title : `${title} — The Code Insight`;
 const path = Astro.url.pathname;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const url = (path = '') => `${base}${path}`;
@@ -23,7 +23,7 @@ const url = (path = '') => `${base}${path}`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0b0d0c" />
-    <link rel="alternate" type="application/rss+xml" title="Engineering notes" href={url('rss.xml')} />
+    <link rel="alternate" type="application/rss+xml" title="Articles" href={url('rss.xml')} />
     <link rel="sitemap" href={url('sitemap-index.xml')} />
     <title>{pageTitle}</title>
     <script is:inline>
@@ -36,16 +36,17 @@ const url = (path = '') => `${base}${path}`;
   <body>
     <header class="site-header">
       <nav class="shell nav" aria-label="Main navigation">
-        <a class="brand" href={url()}>Habib Khan<span class="brand-dot">.</span></a>
+        <a class="brand" href={url()}>The Code Insight<span class="brand-dot">.</span></a>
         <a class="nav-link" aria-current={path.startsWith(url('projects')) ? 'page' : undefined} href={url('projects')}>Work</a>
-        <a class="nav-link" aria-current={path.startsWith(url('articles')) ? 'page' : undefined} href={url('articles')}>Notes</a>
+        <a class="nav-link" aria-current={path.startsWith(url('articles')) ? 'page' : undefined} href={url('articles')}>Articles</a>
         <a class="nav-link" aria-current={path === url('about') || path === `${url('about')}/` ? 'page' : undefined} href={url('about')}>About</a>
+        <a class="nav-link" href={url('contact')}>Contact</a>
         <a class="nav-link" href="https://github.com/legeRise" target="_blank" rel="noreferrer">GitHub ↗</a>
         <button class="theme-button" id="theme" aria-label="Toggle color theme">◐</button>
       </nav>
     </header>
     <main class="shell"><slot /></main>
-    <footer class="site-footer"><div class="shell">Muhammad Habib ur Rehman Khan · Python / Django · <span>{new Date().getFullYear()}</span></div></footer>
+    <footer class="site-footer"><div class="shell">The Code Insight · Muhammad Habib ur Rehman Khan · <span>{new Date().getFullYear()}</span></div></footer>
     <script>
       document.querySelector('#theme')?.addEventListener('click', () => {
         const root = document.documentElement;
