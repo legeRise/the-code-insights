@@ -3,19 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 
-<BaseLayout
-  title="The Code Insight"
-  description="Software projects, production systems, technical articles, and engineering work by Muhammad Habib ur Rehman Khan."
->
+<BaseLayout title="The Code Insight" description="Software projects, production systems, technical articles, and engineering work by Muhammad Habib ur Rehman Khan.">
   <section class="hero">
     <div class="hero-copy">
       <p class="eyebrow">Software · Systems · Writing</p>
       <h1>Muhammad Habib<br />ur Rehman Khan</h1>
       <p class="hero-lede">I build production software, AI products, APIs, and business systems — from backend architecture to the interfaces people actually use.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#work">Explore my work</a>
-        <a class="button" href={`${base}contact`}>Start a conversation</a>
-      </div>
+      <div class="hero-actions"><a class="button button-primary" href="#work">Explore my work</a><a class="button" href={`${base}contact`}>Start a conversation →</a></div>
       <div class="hero-meta"><span>Python · Django · DRF</span><span>Pakistan</span><span>Building since 2020</span></div>
     </div>
     <aside class="hero-card" aria-label="Developer snapshot">
@@ -28,86 +22,26 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
   </section>
 
   <section class="proof-strip" aria-label="Profile highlights">
-    <div><strong>2+</strong><span>years professional development</span></div>
-    <div><strong>Production</strong><span>business systems & APIs</span></div>
-    <div><strong>Shipped</strong><span>mobile + AI products</span></div>
+    <div><strong>2+</strong><span>years professional development</span></div><div><strong>Production</strong><span>business systems & APIs</span></div><div><strong>Shipped</strong><span>mobile + AI products</span></div>
   </section>
 
   <section id="work" class="portfolio-section">
     <div class="section-title"><div><p class="eyebrow">Selected work</p><h2>Things I've actually built.</h2></div><a href={`${base}projects`}>All work →</a></div>
     <div class="project-grid">
-      <a class="project-card project-featured" href={`${base}projects/eztajweed`}>
-        <div class="project-top"><span class="project-number">01</span><span class="tag">Personal</span></div>
-        <h3>EzTajweed</h3>
-        <p>Interactive Quran learning application with an IndoPak 16-line Mushaf, ayah navigation, audio, translations, Tajweed explanations, and quiz-based practice.</p>
-        <div class="chips"><span>React Native</span><span>Django REST</span><span>PostgreSQL</span></div>
-        <span class="project-arrow">View project ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/ezclip`}>
-        <div class="project-top"><span class="project-number">02</span><span class="tag">Personal · AI</span></div>
-        <h3>EzClip</h3>
-        <p>AI video generation backend that turns scripts into narrated videos with generated visuals, captions, cinematic effects, and live progress tracking.</p>
-        <div class="chips"><span>Django</span><span>Celery</span><span>Redis</span><span>R2</span></div>
-        <span class="project-arrow">View project ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/upkeep`}>
-        <div class="project-top"><span class="project-number">03</span><span class="tag">Professional</span></div>
-        <h3>Upkeep Shoes</h3>
-        <p>Production business and customer-facing platform for shoe restoration, covering orders, employee workflows, statuses, notifications, invoices, and customer tracking.</p>
-        <div class="chips"><span>Django</span><span>DRF</span><span>React Native</span></div>
-        <span class="project-arrow">View case study ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/yole-validation`}>
-        <div class="project-top"><span class="project-number">04</span><span class="tag">Professional</span></div>
-        <h3>Yole Validation System</h3>
-        <p>Role-based approval and validation flows for products and stores, with auditing, notifications, access control, and process tracking.</p>
-        <div class="chips"><span>Django</span><span>HTMX</span><span>JavaScript</span></div>
-        <span class="project-arrow">View case study ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/arbzoom`}>
-        <div class="project-top"><span class="project-number">05</span><span class="tag">Professional</span></div>
-        <h3>ArbZoom</h3>
-        <p>Arbitrage betting platform features spanning opportunities, wallets, bet approvals, admin controls, and scheduled platform workflows.</p>
-        <div class="chips"><span>Django</span><span>Celery</span><span>HTMX</span></div>
-        <span class="project-arrow">View case study ↗</span>
-      </a>
-      <a class="project-card" href={`${base}projects/hotshot-ai`}>
-        <div class="project-top"><span class="project-number">06</span><span class="tag">Professional · AI</span></div>
-        <h3>Hotshot AI</h3>
-        <p>Product intelligence experience using product data for structured retrieval, product lookup, FAQ-style answers, and solution suggestions.</p>
-        <div class="chips"><span>Flask</span><span>OpenAI</span><span>REST APIs</span></div>
-        <span class="project-arrow">View case study ↗</span>
-      </a>
+      <a class="project-card project-featured" href={`${base}projects/eztajweed`}><div class="project-top"><span class="project-number">01</span><span class="tag">Personal</span></div><h3>EzTajweed</h3><p>Interactive Quran learning application with an IndoPak 16-line Mushaf, ayah navigation, audio, translations, Tajweed explanations, and quiz-based practice.</p><div class="chips"><span>React Native</span><span>Django REST</span><span>PostgreSQL</span></div><span class="project-arrow">View project ↗</span></a>
+      <a class="project-card" href={`${base}projects/ezclip`}><div class="project-top"><span class="project-number">02</span><span class="tag">Personal · AI</span></div><h3>EzClip</h3><p>AI video generation platform that turns scripts into scenes, generates narration and imagery, and combines them into complete narrated videos.</p><div class="chips"><span>Django</span><span>Celery</span><span>Redis</span><span>R2</span></div><span class="project-arrow">View project ↗</span></a>
+      <a class="project-card" href={`${base}projects/upkeep`}><div class="project-top"><span class="project-number">03</span><span class="tag">Professional</span></div><h3>Upkeep Shoes</h3><p>Production business platform for shoe restoration covering orders, employee workflows, statuses, notifications, invoices, reporting, and customer tracking.</p><div class="chips"><span>Django</span><span>DRF</span><span>React Native</span></div><span class="project-arrow">Case study · Visit product ↗</span></a>
+      <a class="project-card" href={`${base}projects/yole-validation`}><div class="project-top"><span class="project-number">04</span><span class="tag">Professional</span></div><h3>Yole Hub</h3><p>Role-based product and store validation system with approval workflows, auditing, notifications, access control, and process tracking.</p><div class="chips"><span>Django</span><span>HTMX</span><span>JavaScript</span></div><span class="project-arrow">Case study · Visit Yole Hub ↗</span></a>
+      <a class="project-card" href={`${base}projects/arbzoom`}><div class="project-top"><span class="project-number">05</span><span class="tag">Professional</span></div><h3>ArbZoom</h3><p>Production arbitrage betting platform with opportunity discovery, wallets, bet workflows, admin controls, and scheduled automation.</p><div class="chips"><span>Django</span><span>Celery</span><span>HTMX</span></div><span class="project-arrow">Case study · Domain unavailable</span></a>
+      <a class="project-card" href={`${base}projects/hotshot-ai`}><div class="project-top"><span class="project-number">06</span><span class="tag">Professional · AI</span></div><h3>Hotshot AI</h3><p>AI customer assistant for HotShotSecret.com that answers product questions, recommends products, guides customers, and helps diagnose truck-related problems.</p><div class="chips"><span>Flask</span><span>OpenAI</span><span>REST APIs</span></div><span class="project-arrow">Case study · Visit product ↗</span></a>
     </div>
   </section>
 
-  <section class="experience-section">
-    <div class="section-title"><div><p class="eyebrow">Experience</p><h2>Where I've worked.</h2></div></div>
-    <div class="experience-item"><div class="experience-date">Aug 2024 — Present</div><div><h3>Better AI <small>Python Developer</small></h3><p>Production Django/Flask applications, REST APIs, Celery workflows, AI integrations, third-party APIs, frontend integration, Linux/Nginx deployment support, and production debugging.</p><a class="inline-link" href="https://thebetterai.com/" target="_blank" rel="noreferrer">Visit Better AI ↗</a></div></div>
-    <div class="experience-item"><div class="experience-date">2020 — 2024</div><div><h3>COMSATS University Islamabad <small>BS Software Engineering</small></h3><p>Software Engineering · Jun 2020 — Jun 2024</p></div></div>
-  </section>
+  <section class="experience-section"><div class="section-title"><div><p class="eyebrow">Experience</p><h2>Where I've worked.</h2></div></div><div class="experience-item"><div class="experience-date">Aug 2024 — Present</div><div><h3>Better AI <small>Python Developer</small></h3><p>Production Django/Flask applications, REST APIs, Celery workflows, AI integrations, third-party APIs, frontend integration, Linux/Nginx deployment support, and production debugging.</p><a class="inline-link" href="https://thebetterai.com/" target="_blank" rel="noreferrer">Visit Better AI ↗</a></div></div><div class="experience-item"><div class="experience-date">2020 — 2024</div><div><h3>COMSATS University Islamabad <small>BS Software Engineering</small></h3><p>Software Engineering · Jun 2020 — Jun 2024</p></div></div></section>
 
-  <section class="stack-section">
-    <p class="eyebrow">Toolkit</p>
-    <h2>A practical stack.</h2>
-    <div class="stack-grid">
-      <div><strong>Backend</strong><span>Python · Django · DRF · Flask · FastAPI</span></div>
-      <div><strong>Data & async</strong><span>PostgreSQL · Celery · Redis · background jobs</span></div>
-      <div><strong>Frontend</strong><span>JavaScript · React · React Native · HTMX · HTML/CSS</span></div>
-      <div><strong>AI & APIs</strong><span>OpenAI · LangChain · REST APIs · integrations</span></div>
-      <div><strong>Infrastructure</strong><span>Linux · Nginx · Git · production debugging</span></div>
-    </div>
-  </section>
+  <section class="stack-section"><p class="eyebrow">Toolkit</p><h2>A practical stack.</h2><div class="stack-grid"><div><strong>Backend</strong><span>Python · Django · DRF · Flask · FastAPI</span></div><div><strong>Data & async</strong><span>PostgreSQL · Celery · Redis · background jobs</span></div><div><strong>Frontend</strong><span>JavaScript · React · React Native · HTMX · HTML/CSS</span></div><div><strong>AI & APIs</strong><span>OpenAI · LangChain · REST APIs · integrations</span></div><div><strong>Infrastructure</strong><span>Linux · Nginx · Git · production debugging</span></div></div></section>
 
-  <section class="notes-section">
-    <div class="section-title"><div><p class="eyebrow">Articles</p><h2>I write about what I learn and build.</h2></div><a href={`${base}articles`}>Read articles →</a></div>
-    <p class="lede">Technical articles, practical lessons, and ideas from the systems and products I work on.</p>
-  </section>
+  <section class="notes-section"><div class="section-title"><div><p class="eyebrow">Articles</p><h2>I write about what I learn and build.</h2></div><a href={`${base}articles`}>Read articles →</a></div><p class="lede">Technical articles, practical lessons, and ideas from the systems and products I work on.</p></section>
 
-  <section class="contact-section">
-    <p class="eyebrow">Contact</p>
-    <h2>Have something worth building?</h2>
-    <p>Tell me what you're working on and let's start there.</p>
-    <div class="hero-actions"><a class="button button-primary" href={`${base}contact`}>Start a conversation →</a><a class="button" href="https://github.com/legeRise" target="_blank" rel="noreferrer">GitHub ↗</a></div>
-  </section>
+  <section class="contact-section"><p class="eyebrow">Contact</p><h2>Have something worth building?</h2><p>Send a message, book a call, or reach me directly on WhatsApp.</p><div class="hero-actions"><a class="button button-primary" href={`${base}contact`}>Start a conversation →</a><a class="button" href="https://calendly.com/official-habib92/30min" target="_blank" rel="noreferrer">Book a 30-minute call ↗</a></div></section>
 </BaseLayout>
