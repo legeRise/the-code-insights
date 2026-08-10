@@ -1,108 +1,138 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const resumePdf = `${base}Muhammad_Habib_ur_Rehman_Khan_CV_Final.pdf`;
+const resumePdf = `${base}habib_resume_9_aug_2026.pdf`;
 ---
 
 <BaseLayout title="My Resume">
-  <article class="resume-view-page">
-    <header class="resume-view-head">
+  <article class="resume-page">
+    <header class="resume-head">
       <div>
         <p class="eyebrow">My Resume</p>
-        <h1>A closer look at my experience.</h1>
-        <p class="lede">Read the full resume here, or download the original PDF.</p>
+        <h1>My resume, in full.</h1>
+        <p class="lede">A clean view of the same PDF you can download below.</p>
       </div>
-      <a class="button button-primary" href={resumePdf} download>Download Resume ↓</a>
+      <a class="button button-primary" href={resumePdf} download="Muhammad_Habib_ur_Rehman_Khan_Resume.pdf">Download Resume ↓</a>
     </header>
 
     <section class="resume-glass" aria-label="Resume PDF viewer">
-      <div class="resume-glass-bar">
-        <div class="resume-glass-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span>muhammad_habib_ur_rehman_khan · resume.pdf</span>
-        <a href={resumePdf} target="_blank" rel="noreferrer">Open PDF ↗</a>
+      <div class="resume-chrome">
+        <div class="chrome-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span class="chrome-title">habib_resume_9_aug_2026.pdf</span>
+        <a href={resumePdf} target="_blank" rel="noreferrer">Open ↗</a>
       </div>
-      <div class="resume-frame-wrap">
+      <div class="resume-paper">
         <iframe title="Muhammad Habib ur Rehman Khan resume" src={resumePdf}></iframe>
       </div>
     </section>
-
-    <p class="resume-view-note">The viewer uses the same PDF available from the download button, so there is only one resume to keep up to date.</p>
   </article>
 </BaseLayout>
 
 <style>
-  .resume-view-page {
-    padding: clamp(3.5rem, 7vw, 6rem) 0 5rem;
+  .resume-page {
+    padding: clamp(4rem, 8vw, 6.5rem) 0 5rem;
   }
 
-  .resume-view-head {
+  .resume-head {
     display: flex;
     align-items: end;
     justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
   }
 
-  .resume-view-head h1 {
-    max-width: 15ch;
-    font-size: clamp(2.2rem, 5vw, 4rem);
+  .resume-head h1 {
     margin: 0;
+    max-width: 14ch;
+    font-size: clamp(2.35rem, 5vw, 4.25rem);
   }
 
-  .resume-view-head .lede {
-    margin: .9rem 0 0;
+  .resume-head .lede {
+    margin: .85rem 0 0;
   }
 
+  /* The viewer is intentionally restrained: the glass effect frames the real PDF
+     instead of trying to restyle or recreate the resume itself. */
   .resume-glass {
     position: relative;
-    border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
-    border-radius: 1.35rem;
-    padding: .65rem;
-    background:
-      radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 28%),
-      linear-gradient(145deg, color-mix(in srgb, var(--surface) 88%, transparent), color-mix(in srgb, var(--bg) 94%, transparent));
-    box-shadow: 0 30px 100px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.08);
-    backdrop-filter: blur(22px);
+    padding: .75rem;
+    border: 1px solid color-mix(in srgb, var(--text) 13%, transparent);
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--surface) 76%, transparent),
+      color-mix(in srgb, var(--bg) 66%, transparent));
+    box-shadow:
+      0 32px 90px rgba(20, 30, 25, .14),
+      inset 0 1px 0 rgba(255,255,255,.72),
+      inset 0 0 0 1px rgba(255,255,255,.16);
+    backdrop-filter: blur(24px) saturate(125%);
+    -webkit-backdrop-filter: blur(24px) saturate(125%);
     overflow: hidden;
   }
 
-  .resume-glass-bar {
-    min-height: 2.6rem;
+  [data-theme="dark"] .resume-glass {
+    box-shadow:
+      0 32px 90px rgba(0, 0, 0, .34),
+      inset 0 1px 0 rgba(255,255,255,.08),
+      inset 0 0 0 1px rgba(255,255,255,.03);
+  }
+
+  .resume-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 28%);
+  }
+
+  .resume-chrome {
+    position: relative;
+    z-index: 1;
+    min-height: 2.8rem;
     display: grid;
     grid-template-columns: 5rem 1fr 5rem;
     align-items: center;
     gap: .75rem;
-    padding: 0 .65rem;
+    padding: 0 .55rem;
     color: var(--muted);
     font: .68rem ui-monospace, "Cascadia Code", monospace;
   }
 
-  .resume-glass-bar > span {
+  .chrome-title {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
   }
 
-  .resume-glass-bar a {
+  .resume-chrome a {
     justify-self: end;
     color: var(--muted);
   }
 
-  .resume-glass-dots { display: flex; gap: .35rem; }
-  .resume-glass-dots i { width: .48rem; height: .48rem; border-radius: 50%; background: var(--line); display: block; }
-  .resume-glass-dots i:first-child { background: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+  .resume-chrome a:hover { color: var(--accent); }
 
-  .resume-frame-wrap {
-    height: min(78vh, 980px);
-    min-height: 650px;
-    border-radius: .9rem;
+  .chrome-lights { display: flex; gap: .35rem; }
+  .chrome-lights i {
+    width: .48rem;
+    height: .48rem;
+    border-radius: 50%;
+    display: block;
+    background: color-mix(in srgb, var(--text) 18%, transparent);
+  }
+  .chrome-lights i:first-child { background: color-mix(in srgb, var(--accent) 58%, var(--surface)); }
+
+  .resume-paper {
+    position: relative;
+    height: min(82vh, 1050px);
+    min-height: 680px;
     overflow: hidden;
-    background: #e9ece9;
-    box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 16px 45px rgba(0,0,0,.16);
   }
 
-  .resume-frame-wrap iframe {
+  .resume-paper iframe {
     display: block;
     width: 100%;
     height: 100%;
@@ -110,19 +140,15 @@ const resumePdf = `${base}Muhammad_Habib_ur_Rehman_Khan_CV_Final.pdf`;
     background: #fff;
   }
 
-  .resume-view-note {
-    margin: 1rem auto 0;
-    max-width: 70ch;
-    text-align: center;
-    color: var(--muted);
-    font-size: .78rem;
-  }
-
   @media (max-width: 700px) {
-    .resume-view-head { align-items: start; flex-direction: column; }
-    .resume-view-head .button { width: 100%; }
-    .resume-glass { padding: .4rem; border-radius: 1rem; }
-    .resume-glass-bar { grid-template-columns: 3.5rem 1fr 3.5rem; font-size: .6rem; }
-    .resume-frame-wrap { min-height: 560px; height: 75vh; border-radius: .7rem; }
+    .resume-head {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .resume-head .button { width: 100%; }
+    .resume-glass { padding: .45rem; border-radius: 1rem; }
+    .resume-chrome { grid-template-columns: 3.5rem 1fr 3.5rem; }
+    .resume-paper { height: 76vh; min-height: 560px; border-radius: .7rem; }
   }
 </style>
