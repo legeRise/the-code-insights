@@ -22,6 +22,7 @@ const projects = defineCollection({
     image: z.string().optional(),
     url: z.url().optional(),
     repository: z.url().optional(),
+    type: z.enum(['personal', 'professional']).default('personal'),
     featured: z.boolean().default(false),
     order: z.number().default(0),
   }),
