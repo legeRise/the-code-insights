@@ -1,84 +1,128 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const resumePdf = `${base}Muhammad_Habib_ur_Rehman_Khan_CV_Final(3).pdf`;
+const resumePdf = `${base}Muhammad_Habib_ur_Rehman_Khan_CV_Final.pdf`;
 ---
 
-<BaseLayout title="Resume">
-  <article class="resume-page">
-    <div class="resume-toolbar">
+<BaseLayout title="My Resume">
+  <article class="resume-view-page">
+    <header class="resume-view-head">
       <div>
-        <p class="eyebrow">Resume</p>
-        <h1>Professional experience, at a glance.</h1>
+        <p class="eyebrow">My Resume</p>
+        <h1>A closer look at my experience.</h1>
+        <p class="lede">Read the full resume here, or download the original PDF.</p>
       </div>
-      <a class="button button-primary" href={resumePdf} download>Download PDF ↓</a>
-    </div>
+      <a class="button button-primary" href={resumePdf} download>Download Resume ↓</a>
+    </header>
 
-    <section class="resume-sheet">
-      <header class="resume-header">
-        <div>
-          <h2>Muhammad Habib ur Rehman Khan</h2>
-          <p>Backend / Full-Stack Developer</p>
-        </div>
-        <div class="resume-contact">
-          <span>Attock District, Pakistan</span>
-          <a href="https://github.com/legeRise" target="_blank" rel="noreferrer">github.com/legeRise ↗</a>
-          <span>WhatsApp available via Contact</span>
-        </div>
-      </header>
-
-      <section class="resume-block">
-        <h3>Profile</h3>
-        <p>Python/Django developer building production business systems, REST APIs, dashboards, background jobs, AI integrations, and mobile-facing backend features. Experienced with Django/DRF, Flask/FastAPI, Celery, PostgreSQL, OpenAI/LangChain, frontend integration, and Linux/Nginx deployment support.</p>
-      </section>
-
-      <section class="resume-block">
-        <h3>Core skills</h3>
-        <div class="resume-skills">
-          <div><strong>Backend</strong><span>Python, Django, Django REST Framework, Flask, FastAPI</span></div>
-          <div><strong>Database & Async</strong><span>PostgreSQL, Celery, background jobs, data handling</span></div>
-          <div><strong>Frontend / Mobile</strong><span>JavaScript, React, HTMX, React Native, HTML/CSS</span></div>
-          <div><strong>AI & APIs</strong><span>OpenAI, LangChain, REST APIs, third-party integrations</span></div>
-          <div><strong>Deployment</strong><span>Linux, Nginx, Git, production debugging</span></div>
-        </div>
-      </section>
-
-      <section class="resume-block">
-        <h3>Work experience</h3>
-        <div class="resume-entry">
-          <div class="resume-entry-top"><strong>Better AI — Python Developer</strong><span>Aug 2024 — Present</span></div>
-          <ul>
-            <li>Built and maintained production Django/Flask apps for dashboards, order workflows, approvals, notifications, reports, and API-driven products.</li>
-            <li>Developed REST APIs and backend logic for customer orders, employee tasks, status tracking, invoice flows, and operational dashboards.</li>
-            <li>Implemented async/background processing with Celery for notifications, scheduled work, data handling, and production workflows.</li>
-            <li>Integrated OpenAI/LangChain features with product data for chat-based support and retrieval-style user experiences.</li>
-            <li>Supported third-party APIs, frontend integration, Linux/Nginx deployment support, bug fixes, and production debugging.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="resume-block">
-        <h3>Professional work</h3>
-        <div class="resume-projects">
-          <div><strong>Yole Hub — Validation System</strong><span>Feb 2025 — Present · hub.yole.com</span><p>Role-based approval flows for products and stores, auditing, users, notifications, access control, and process tracking.</p></div>
-          <div><strong>Upkeep Shoes — Business Management System</strong><span>Sep 2025 — Present · upkeep.thebetterai.com</span><p>Backend APIs and dashboard workflows for customer orders, employee tasks, statuses, reports, notifications, invoices, and operational workflows.</p></div>
-          <div><strong>Arbzoom — Arbitrage Betting Platform</strong><span>Aug 2024 — Aug 2025</span><p>Arbitrage opportunities, user wallets, bet approvals, admin controls, background tasks, and daily platform workflows.</p></div>
-          <div><strong>Hotshot AI — Product Chatbot</strong><span>Jan 2025 — Mar 2025 · hotshotai.thebetterai.com</span><p>Flask/OpenAI customer assistant for HotShotSecret.com with product questions, recommendations, guidance, and truck troubleshooting.</p></div>
-        </div>
-      </section>
-
-      <section class="resume-block">
-        <h3>Personal projects</h3>
-        <div class="resume-projects">
-          <div><strong>EzClip — AI Video Generation Platform</strong><span>Open-source backend · Android app available</span><p>Script-to-scene generation, automatic narration, generated scene imagery, and fully narrated video assembly. Built with Django, DRF, Celery, Redis, OpenAI, Runware, MoviePy, SSE, and Cloudflare R2.</p></div>
-          <div><strong>EzTajweed — Quran Learning Application</strong><span>Published on Google Play</span><p>React Native Quran learning application featuring an interactive IndoPak 16-line Mushaf, ayah-level navigation, audio, translations, Tajweed explanations, and quiz-based practice.</p></div>
-        </div>
-      </section>
-
-      <section class="resume-block">
-        <h3>Education</h3>
-        <div class="resume-entry-top"><strong>COMSATS University Islamabad — BS Software Engineering</strong><span>Jun 2020 — Jun 2024</span></div>
-      </section>
+    <section class="resume-glass" aria-label="Resume PDF viewer">
+      <div class="resume-glass-bar">
+        <div class="resume-glass-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span>muhammad_habib_ur_rehman_khan · resume.pdf</span>
+        <a href={resumePdf} target="_blank" rel="noreferrer">Open PDF ↗</a>
+      </div>
+      <div class="resume-frame-wrap">
+        <iframe title="Muhammad Habib ur Rehman Khan resume" src={resumePdf}></iframe>
+      </div>
     </section>
+
+    <p class="resume-view-note">The viewer uses the same PDF available from the download button, so there is only one resume to keep up to date.</p>
   </article>
 </BaseLayout>
+
+<style>
+  .resume-view-page {
+    padding: clamp(3.5rem, 7vw, 6rem) 0 5rem;
+  }
+
+  .resume-view-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .resume-view-head h1 {
+    max-width: 15ch;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin: 0;
+  }
+
+  .resume-view-head .lede {
+    margin: .9rem 0 0;
+  }
+
+  .resume-glass {
+    position: relative;
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+    border-radius: 1.35rem;
+    padding: .65rem;
+    background:
+      radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 28%),
+      linear-gradient(145deg, color-mix(in srgb, var(--surface) 88%, transparent), color-mix(in srgb, var(--bg) 94%, transparent));
+    box-shadow: 0 30px 100px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter: blur(22px);
+    overflow: hidden;
+  }
+
+  .resume-glass-bar {
+    min-height: 2.6rem;
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem;
+    align-items: center;
+    gap: .75rem;
+    padding: 0 .65rem;
+    color: var(--muted);
+    font: .68rem ui-monospace, "Cascadia Code", monospace;
+  }
+
+  .resume-glass-bar > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .resume-glass-bar a {
+    justify-self: end;
+    color: var(--muted);
+  }
+
+  .resume-glass-dots { display: flex; gap: .35rem; }
+  .resume-glass-dots i { width: .48rem; height: .48rem; border-radius: 50%; background: var(--line); display: block; }
+  .resume-glass-dots i:first-child { background: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+
+  .resume-frame-wrap {
+    height: min(78vh, 980px);
+    min-height: 650px;
+    border-radius: .9rem;
+    overflow: hidden;
+    background: #e9ece9;
+    box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  }
+
+  .resume-frame-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #fff;
+  }
+
+  .resume-view-note {
+    margin: 1rem auto 0;
+    max-width: 70ch;
+    text-align: center;
+    color: var(--muted);
+    font-size: .78rem;
+  }
+
+  @media (max-width: 700px) {
+    .resume-view-head { align-items: start; flex-direction: column; }
+    .resume-view-head .button { width: 100%; }
+    .resume-glass { padding: .4rem; border-radius: 1rem; }
+    .resume-glass-bar { grid-template-columns: 3.5rem 1fr 3.5rem; font-size: .6rem; }
+    .resume-frame-wrap { min-height: 560px; height: 75vh; border-radius: .7rem; }
+  }
+</style>
