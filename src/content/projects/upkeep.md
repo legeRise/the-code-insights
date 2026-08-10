@@ -13,4 +13,4 @@ The public Upkeep platform provides a way to see the customer-facing product I h
 
 ## Stack
 
-Django, Django REST Framework, PostgreSQL, Celery, Firebase Cloud Messaging, FedEx API, XplorPay, and React Native.
+Django, Django REST Framework, PostgreSQL, Celery, Firebase Cloud Messaging, XplorPay, and React Native.
