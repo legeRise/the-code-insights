@@ -39,8 +39,9 @@ const url = (path = '') => `${base}${path}`;
         <a class="brand" href={url()}>The Code Insight<span class="brand-dot">.</span></a>
         <a class="nav-link" aria-current={path.startsWith(url('projects')) ? 'page' : undefined} href={url('projects')}>Work</a>
         <a class="nav-link" aria-current={path.startsWith(url('articles')) ? 'page' : undefined} href={url('articles')}>Articles</a>
+        <a class="nav-link" aria-current={path === url('resume') || path === `${url('resume')}/` ? 'page' : undefined} href={url('resume')}>Resume</a>
         <a class="nav-link" aria-current={path === url('about') || path === `${url('about')}/` ? 'page' : undefined} href={url('about')}>About</a>
-        <a class="nav-link" href={url('contact')}>Contact</a>
+        <a class="nav-link" aria-current={path === url('contact') || path === `${url('contact')}/` ? 'page' : undefined} href={url('contact')}>Contact</a>
         <a class="nav-link" href="https://github.com/legeRise" target="_blank" rel="noreferrer">GitHub ↗</a>
         <button class="theme-button" id="theme" aria-label="Toggle color theme">◐</button>
       </nav>
