@@ -1,4 +1,9 @@
-# HyperFrames — Blackbox in a Whitebox
+---
+title: "HyperFrames — Blackbox in a Whitebox"
+description: "I spent a week trying to understand what HyperFrames was actually doing behind the scenes. This is the mental model that finally made sense to me."
+published: 2026-09-10
+tags: ["hyperframes", "ai", "video", "web", "programming"]
+---
 
 I was building a simple video editor for my own use case.
 
