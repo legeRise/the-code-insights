@@ -155,7 +155,8 @@ Please do try and let me know if you like it.
 
 There are a few things I already know i am missing and are important like
 
-`authentication` even simple username password would do well and will be safer than exposing your server logs for anyone to consume on web. Haven’t got time to add it yet. but will eventually do.
+
+`authentication` even simple username password would do well and will be safer than exposing your server logs for anyone to consume on web. But for now I have added guide to use basic authentication via nginx instead of having it directly in this project which works pretty well for me.
 
 Good news for you though if you install and set it up now on your server and later I update and add `authentication` feature you will like what `ezlog update` can do.
 
