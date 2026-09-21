@@ -858,3 +858,28 @@ a.project-card:hover::after {
     padding-top: 5rem;
   }
 }
+
+
+/* Final typography + mobile navigation pass */
+.nav-links { display:flex; align-items:center; gap:1.35rem; min-width:0; }
+h1,h2,h3 { font-family:"Space Grotesk","Plus Jakarta Sans",sans-serif; font-weight:700; }
+.hero h1 { font-size:clamp(2.75rem,5.5vw,4.9rem); line-height:.98; letter-spacing:-.065em; max-width:10ch; }
+.narrow > h1 { font-size:clamp(2.75rem,5.5vw,4.8rem); }
+.article-head h1 { font-size:clamp(2.5rem,5vw,4.3rem); }
+.contact-section h2 { font-size:clamp(2.4rem,4.5vw,4rem); }
+.project-card h3,.experience-item h3 { font-weight:700; }
+
+@media (max-width:760px) {
+  .nav { flex-wrap:wrap; min-height:0; padding-block:.75rem .65rem; gap:.65rem; }
+  .brand { flex:0 0 100%; font-size:.94rem; }
+  .nav-links { width:100%; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; gap:1.1rem; padding-bottom:.2rem; }
+  .nav-links::-webkit-scrollbar { display:none; }
+  .nav-link { flex:0 0 auto; font-size:.68rem; }
+  .nav-link::after { bottom:-.35rem; }
+  .hero h1 { font-size:clamp(2.65rem,11vw,4.2rem); max-width:9ch; }
+  .narrow > h1 { font-size:clamp(2.65rem,10vw,4rem); }
+}
+@media (max-width:560px) {
+  .hero h1 { font-size:clamp(2.5rem,12vw,3.65rem); }
+  .article-head h1 { font-size:clamp(2.35rem,10vw,3.6rem); }
+}
